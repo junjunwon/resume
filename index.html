@@ -256,6 +256,14 @@
 
     .career-sec li strong { font-weight: 600; color: #333; }
 
+    /* 강조 하이라이트 — 수치·성과·핵심 키워드 */
+    .highlight {
+      background: linear-gradient(to bottom, transparent 55%, rgba(255, 212, 100, 0.45) 55%, rgba(255, 212, 100, 0.45) 92%, transparent 92%);
+      padding: 0 2px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
     .career-sec table { margin-top: 8px; margin-bottom: 16px; }
 
     table {
@@ -286,6 +294,7 @@
       .top { border-bottom-color: #ddd; }
       .career-sec { border-top-color: #ddd; }
       .career-sec .project { break-inside: avoid; }
+      .highlight { background: rgba(255, 236, 179, 0.6); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
 </head>
@@ -316,7 +325,7 @@
     </header>
 
     <p class="intro">
-      Java & Spring 기반의 6년차 서버 백엔드 엔지니어 원준호입니다. 다우오피스 플랫폼서비스팀에서 4개 서비스 연동·개발과 대규모 데이터에 대한 정합성을 확보했고, 이후 사방넷 WMS에서 시스템 유지보수와 운영을 담당하며 레거시 시스템 개선과 성능 최적화를 진행한 경험이 있습니다. 확장 가능한 아키텍처 설계와 코드 품질 향상에 관심이 많아, 코드 스타일과 컨벤션 규칙을 정립하고 코드리뷰 문화를 만들어가며 팀의 기술적 성숙도를 높이는 데 기여하고 있습니다.
+      Java & Spring 기반의 <span class="highlight">6년차</span> 서버 백엔드 엔지니어 원준호입니다. 다우오피스 플랫폼서비스팀에서 <span class="highlight">4개 서비스 연동·개발</span>과 대규모 데이터에 대한 <span class="highlight">정합성 확보</span>를 담당했고, 이후 사방넷 WMS에서 레거시 시스템 개선과 <span class="highlight">성능 최적화</span>를 진행한 경험이 있습니다. 확장 가능한 아키텍처 설계와 코드 품질 향상에 관심이 많아, 코드 스타일·컨벤션 규칙 정립과 코드리뷰 문화 형성으로 팀의 기술적 성숙도 향상에 기여하고 있습니다.
     </p>
 
     <!-- 경력 요약 (Work Experience Overview) -->
@@ -327,9 +336,9 @@
         <p class="exp-company">서버 백엔드 개발자 · 사방넷 WMS</p>
         <p class="exp-meta"><span>(주)다우기술</span><span>2025.07 ~ 현재</span></p>
         <ul>
-          <li>엑셀 발주 일괄등록 PHP 배치를 Spring Batch로 전환, 처리 시간 93.75% 감소(12분→45초) 및 OOM 문제 해결</li>
-          <li>Strategy 패턴 기반 물류 피킹통합 기능 확장 및 주문 단위 출고 작업 기능 신설, 출고지시 자동화 배치 구현(JUnit 검증)</li>
-          <li>1,200개 물류사 규모의 풀필먼트 WMS 시스템 기능 개선 및 운영을 통한 안정성과 성능 최적화 기여</li>
+          <li>엑셀 발주 일괄등록 PHP 배치를 <span class="highlight">Spring Batch</span>로 전환, 처리 시간 <span class="highlight">93.75% 감소(12분→45초)</span> 및 <span class="highlight">OOM 해결</span></li>
+          <li><span class="highlight">Strategy 패턴</span> 기반 물류 피킹통합 기능 확장 및 주문 단위 출고 작업 신설, 출고지시 자동화 배치 구현(<span class="highlight">JUnit 검증</span>)</li>
+          <li><span class="highlight">1,200개 물류사</span> 규모의 풀필먼트 WMS 시스템 기능 개선·운영을 통한 안정성 및 성능 최적화 기여</li>
         </ul>
         <p class="exp-skills"><strong>Skill Keyword:</strong> Vue 3, Java 21, SpringBoot, Spring Batch, Redis, MySQL, Cronicle, NCP</p>
       </div>
@@ -338,13 +347,13 @@
         <p class="exp-company">서버 백엔드 개발자 · 다우오피스 Platform Service</p>
         <p class="exp-meta"><span>(주)다우기술</span><span>2022.11 ~ 2025.07</span></p>
         <ul>
-          <li>백오피스 정산시스템 분리 및 연동 인터페이스 개발 → 연 300억 규모 빌링-정산 데이터의 정합성 100% 달성</li>
-          <li>백오피스와 4개의 플랫폼서비스 기능 개선 및 운영을 통한 안정성과 성능 최적화에 기여</li>
-          <li>그룹웨어 서비스 개설 상태를 실시간으로 파악할 수 있는 알림 시스템 구축으로 운영 대응 효율성 향상</li>
-          <li>그룹웨어 멤버십 구요금제 → 신요금제 자동 전환 프로세스 설계 및 구현하여 고객에게 최적화된 요금제 제공</li>
-          <li>클러스터간 8억개의 PK 중복없이 회사를 이관하기 위한 다우오피스 전체 클러스터 채번 전략 재수립</li>
-          <li>OAuth 2.0 기반의 외부시스템용 표준 Open API 설계 및 구현</li>
-          <li>복수 클라이언트 확장을 고려한 SSO 연동 표준 서비스 설계 및 개발 (다우오피스 내 LG 복지몰 오픈)</li>
+          <li>백오피스 정산시스템 분리 및 연동 인터페이스 개발 → 연 <span class="highlight">300억</span> 규모 빌링-정산 데이터의 <span class="highlight">정합성 100%</span> 달성</li>
+          <li>백오피스와 4개 플랫폼서비스 기능 개선·운영을 통한 안정성 및 성능 최적화 기여</li>
+          <li>그룹웨어 서비스 개설 상태를 <span class="highlight">실시간 파악</span> 가능한 알림 시스템 구축으로 운영 대응 효율 향상</li>
+          <li>멤버십 구요금제 → 신요금제 <span class="highlight">자동 전환 프로세스</span> 설계·구현으로 고객 맞춤 요금제 제공</li>
+          <li>클러스터 간 <span class="highlight">8억 개 PK 중복 없이</span> 회사 이관을 위한 다우오피스 전체 클러스터 채번 전략 재수립</li>
+          <li><span class="highlight">OAuth 2.0</span> 기반 외부시스템용 표준 Open API 설계 및 구현</li>
+          <li>복수 클라이언트 확장을 고려한 <span class="highlight">SSO 연동 표준 서비스</span> 설계·개발 (다우오피스 내 LG 복지몰 오픈)</li>
         </ul>
         <p class="exp-skills"><strong>Skill Keyword:</strong> Vue 2, Java 21, SpringBoot, RabbitMQ, PostgreSQL, GCP</p>
       </div>
@@ -354,11 +363,11 @@
         <p class="exp-meta"><span>(주)타임게이트</span><span>2020.04 ~ 2022.11</span></p>
         <ul>
           <li>신규 VDI 어드민시스템 기술스택 제안 및 구현</li>
-          <li>관리자 메뉴 동기화부터 권한 검증까지의 백엔드 권한관리 플로우를 설계 및 구현하여, 시스템 안정성과 보안을 강화</li>
-          <li>Active Directory 연동 사용자 관리 프로세스를 구현하고, 포털에서 원클릭 관리 기능을 개발하여 관리 효율성을 높임</li>
-          <li>Citrix SDK를 적용하여 쉽고 빠르게 동일한 스펙의 VM을 생성할 수 있는 템플릿 서비스와 API 개발</li>
-          <li>Java 기반으로 Saga 패턴을 적용하여 VM 템플릿 생성 서비스 단계별 재시도 전략을 수립 및 구현</li>
-          <li>Citrix X Spring 기반의 VDI 사용자 & 어드민 솔루션 개발 및 트러블슈팅 (이베이코리아, 지역난방공사 등 여러 기업 담당)</li>
+          <li>관리자 메뉴 동기화~권한 검증까지 백엔드 권한관리 플로우 설계·구현으로 <span class="highlight">시스템 안정성·보안 강화</span></li>
+          <li>Active Directory 연동 사용자 관리 구현 및 포털 <span class="highlight">원클릭 관리</span> 기능 개발로 운영 효율 향상</li>
+          <li>Citrix SDK 적용으로 동일 스펙 VM을 빠르게 생성하는 <span class="highlight">템플릿 서비스·API</span> 개발</li>
+          <li>Java 기반 <span class="highlight">Saga 패턴</span> 적용으로 VM 템플릿 생성 서비스 단계별 재시도 전략 수립·구현</li>
+          <li>Citrix × Spring 기반 VDI 사용자·어드민 솔루션 개발 및 트러블슈팅 (이베이코리아, 지역난방공사 등 다수 기업 담당)</li>
         </ul>
         <p class="exp-skills"><strong>Skill Keyword:</strong> Vue 2, Java 21, SpringBoot, RabbitMQ, MsSQL, ExtJS</p>
       </div>
@@ -374,15 +383,15 @@
     <!-- 자격증 및 기타 -->
     <section class="sec cert-sec">
       <h2 class="sec-title">자격증 및 기타</h2>
-      <p class="cert-item">● 정보처리기사 — 한국산업인력공단</p>
-      <p class="cert-item">● Upper-Intermediate Certificate in English from Oxford International Language School in the UK</p>
+      <p class="cert-item">정보처리기사 — 한국산업인력공단</p>
+      <p class="cert-item">Upper-Intermediate Certificate in English from Oxford International Language School in the UK</p>
     </section>
 
     <!-- 기술적 성과 요약 -->
     <section class="sec highlights">
       <h2 class="sec-title">기술적 성과 요약</h2>
-      <p>엑셀 발주 일괄등록 PHP 배치를 Spring Batch로 전환, 처리 시간 93.75% 감소(12분→45초) 및 OOM 문제 해결</p>
-      <p>Strategy 패턴 기반 피킹통합 기능 확장 및 주문 단위 출고 작업 기능 신설, 출고지시 자동화 배치 구현(JUnit 검증)</p>
+      <p>엑셀 발주 일괄등록 PHP 배치를 Spring Batch로 전환 → 처리 시간 <span class="highlight">93.75% 감소(12분→45초)</span>, <span class="highlight">OOM 해결</span></p>
+      <p>Strategy 패턴 기반 피킹통합 확장·주문 단위 출고 작업 신설, 출고지시 자동화 배치 구현 및 <span class="highlight">JUnit 정합성 검증</span></p>
     </section>
 
     <!-- 주요 프로젝트 -->
@@ -395,11 +404,11 @@
           <span>백엔드 개발자</span>
           <span>Java, Spring Batch, MyBatis, MySQL, Apache POI</span>
         </p>
-        <p class="project-summary">처리 시간 93.75% 감소(12분→45초), OOM 해결, N+1 쿼리 99.997% 감소</p>
+        <p class="project-summary"><span class="highlight">처리 시간 93.75% 감소(12분→45초)</span>, <span class="highlight">OOM 해결</span>, N+1 쿼리 <span class="highlight">99.997% 감소</span></p>
         <ul>
-          <li>Spring Batch 아키텍처 설계 및 구현 (Job, Step, Chunk 기반 처리)</li>
-          <li>Bulk 처리 전환, BatchInsertExecutor 유틸리티로 배치 단위 메모리 해제 구현</li>
-          <li>5개 독립 프로세스 → 1개 통합 Job, 4단계 Step 모듈화, 파일 단위 독립 처리</li>
+          <li>Spring Batch 아키텍처 설계·구현 (Job, Step, Chunk 기반 처리)</li>
+          <li><span class="highlight">Bulk 처리</span> 전환, BatchInsertExecutor로 배치 단위 메모리 해제 구현</li>
+          <li>5개 독립 프로세스 → <span class="highlight">1개 통합 Job</span>, 4단계 Step 모듈화, 파일 단위 독립 처리</li>
           <li>중복 처리 방지(원자적 상태 변경), Fault Tolerance(최대 3회 재시도)</li>
         </ul>
         <div class="techs">
@@ -410,18 +419,18 @@
       <div class="project">
         <h3 class="project-title">피킹고도화 프로젝트</h3>
         <p class="project-meta">
-          <span>1인 개발 (설계/개발/TC/오픈)</span>
+          <span><span class="highlight">1인 개발</span> (설계/개발/TC/오픈)</span>
           <span>2개월</span>
           <span>Java, Spring Boot, Vue 3, MySQL</span>
         </p>
-        <p class="project-summary">Strategy 패턴 기반 피킹통합 확장, 출고주문별조회 메뉴 신설(10여개 기능), 출고지시 자동화 배치, JUnit 정합성 검증</p>
+        <p class="project-summary"><span class="highlight">Strategy 패턴</span> 기반 피킹통합 확장, 출고주문별조회 메뉴 신설(10여 개 기능), 출고지시 자동화 배치, <span class="highlight">JUnit 정합성 검증</span></p>
         <ul>
           <li>PickingGroupStrategy 인터페이스 기반 확장 가능한 피킹통합 아키텍처 설계</li>
-          <li>출고회차별조회와 출고주문별조회 완전 분리로 기존 기능 사이드 이펙트 제로</li>
+          <li>출고회차별·출고주문별 조회 완전 분리로 기존 기능 <span class="highlight">사이드 이펙트 제로</span></li>
           <li>출고지시 자동화 배치(재고 할당/이동, 출고 상태 업데이트, 피킹 데이터 자동 생성)</li>
           <li>JUnit + Mockito 단위 테스트로 재고/출고 상태 정합성 검증 (정상·예외·경계값)</li>
         </ul>
-        <p class="project-meta">기획팀 TC 1,500개 전체 PASS</p>
+        <p class="project-meta">기획팀 TC <span class="highlight">1,500개</span> 전체 PASS</p>
         <div class="techs">
           <span>Java</span><span>Spring Boot</span><span>Spring Batch</span><span>Vue 3</span><span>MyBatis</span><span>MySQL</span>
         </div>
@@ -447,12 +456,12 @@
         <p class="sub-title">주요 기여</p>
         <p><strong>성능 개선</strong></p>
         <ul>
-          <li>처리 시간 93.75% 감소: 12분 → 45초 (16배 속도 향상) — Spring Batch 전환 후에도 동일 문제 발생 → 개별 조회 및 처리 부분을 전부 Bulk 처리로 변경, Row 단위 처리 → Bulk 처리 전환, N+1 쿼리 해결: 30,000번 → 1번 (99.997% 감소)</li>
-          <li>PHP 및 Spring Batch 초기 버전에서 발생하던 OOM 문제 해결 — BatchInsertExecutor 유틸리티 클래스 개발로 배치 단위 메모리 해제 구현, Peak 메모리 37.5% 감소 (400MB+ → 250MB)</li>
+          <li>처리 시간 <span class="highlight">93.75% 감소: 12분 → 45초</span> (16배 속도 향상). 개별 조회·처리를 전부 <span class="highlight">Bulk 처리</span>로 전환, N+1 쿼리 해결: 30,000번 → 1번 (<span class="highlight">99.997% 감소</span>)</li>
+          <li>PHP 및 Spring Batch 초기 버전에서 발생하던 <span class="highlight">OOM 해결</span> — BatchInsertExecutor로 배치 단위 메모리 해제 구현, Peak 메모리 <span class="highlight">37.5% 감소</span> (400MB+ → 250MB)</li>
         </ul>
         <p><strong>아키텍처 개선</strong></p>
         <ul>
-          <li>5개 독립 프로세스 → 1개 통합 Job: 프로세스 관리 단순화 및 실행 주기 통일</li>
+          <li>5개 독립 프로세스 → <span class="highlight">1개 통합 Job</span>: 프로세스 관리 단순화 및 실행 주기 통일</li>
           <li>4단계 Step 기반 모듈화: 회사 목록 조회 → 상태 업데이트 → 엑셀 읽기 → 주문 생성</li>
           <li>파일 단위 독립 처리: 부분 실패 격리로 영향 범위 최소화</li>
           <li>중복 처리 방지: Step 2에서 원자적 상태 변경 및 Commit으로 배타 제어</li>
@@ -463,9 +472,9 @@
             <tr><th>항목</th><th>개선 전</th><th>개선 후</th></tr>
           </thead>
           <tbody>
-            <tr><td>처리 시간 (15,000 row)</td><td>약 12분</td><td>45초 (93.75% 감소)</td></tr>
-            <tr><td>판매상품 조회 쿼리</td><td>30,000번</td><td>1번 (99.997% 감소)</td></tr>
-            <tr><td>Peak 메모리</td><td>400MB+ (OOM 발생)</td><td>약 250MB (OOM 해결)</td></tr>
+            <tr><td>처리 시간 (15,000 row)</td><td>약 12분</td><td><span class="highlight">45초 (93.75% 감소)</span></td></tr>
+            <tr><td>판매상품 조회 쿼리</td><td>30,000번</td><td><span class="highlight">1번 (99.997% 감소)</span></td></tr>
+            <tr><td>Peak 메모리</td><td>400MB+ (OOM 발생)</td><td><span class="highlight">약 250MB (OOM 해결)</span></td></tr>
           </tbody>
         </table>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 기획팀, 정산팀</span><span>기술 스택: Spring Batch, SpringBoot, MyBatis, Java, Bitbucket(Git), MySQL, NCP</span></p>
@@ -486,12 +495,12 @@
         </ul>
         <p class="sub-title">주요 기여</p>
         <ul>
-          <li>Strategy 인터페이스 기반 확장 가능한 구조로 다양한 피킹 방식을 유연하게 추가하는 확장성 확보</li>
-          <li>회차 단위 출고 작업(여러 출고건을 회차로 묶어 처리)과 신설한 출고 단위 출고 작업 간 중복코드로 완전 분리하여 기존 기능 사이드 이펙트 제로 달성</li>
-          <li>출고요청 상태의 출고 데이터를 자동으로 출고지시 상태로 변경하는 배치 Step 구현</li>
-          <li>JUnit + Mockito 기반 단위 테스트로 재고 검증/할당/이동, 출고 상태 변경/히스토리 정합성 검증 완료(정상/예외/경계값 테스트 커버리지 확보)</li>
-          <li>다양한 피킹 방식 지원(송장/총량)으로 고객사별 맞춤형 피킹 작업 가능</li>
-          <li>기획팀 작성 TC 1,500개 전체 PASS로 높은 품질 확보</li>
+          <li><span class="highlight">Strategy 인터페이스</span> 기반 확장 가능한 구조로 다양한 피킹 방식을 유연하게 추가</li>
+          <li>회차 단위 출고 작업과 신설한 출고 단위 출고 작업을 완전 분리하여 기존 기능 <span class="highlight">사이드 이펙트 제로</span> 달성</li>
+          <li>출고요청 → 출고지시 상태로 자동 변경하는 배치 Step 구현</li>
+          <li><span class="highlight">JUnit + Mockito</span> 단위 테스트로 재고 검증/할당/이동, 출고 상태·히스토리 정합성 검증 (정상·예외·경계값)</li>
+          <li>다양한 피킹 방식(송장/총량) 지원으로 고객사별 맞춤형 피킹 작업 가능</li>
+          <li>기획팀 작성 TC <span class="highlight">1,500개</span> 전체 PASS로 품질 확보</li>
         </ul>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 커머스서비스기획팀, 운영팀</span><span>기술 스택: Spring Batch, SpringBoot, MyBatis, Java, Bitbucket(Git), MySQL, NCP</span></p>
       </div>
@@ -500,7 +509,7 @@
         <h3 class="project-title">3. 정산 시스템 연동 안정화를 통해 데이터 정합성 100% 확보 및 회계 리스크 제거</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice 빌링 시스템 / 신정산 시스템</span></p>
         <p class="sub-title">서비스 설명</p>
-        <p>연간 약 300억 규모의 빌링-정산 데이터를 관리하는 그룹웨어 백오피스에서 기존 빌링/정산 통합 시스템에서 빌링과 정산 시스템 분리 구조로 전환하는 프로젝트를 진행했습니다. 기존 통합 구조로 인해 발생하던 연동 오류, 데이터 불일치 및 정산 마감 지연 문제를 시스템 분리 및 연동 구조 재설계를 통해 해결하여, 2025년 6월 정산 시스템 안정 오픈을 완료했습니다. 이를 통해 정산 데이터 정합성 100%를 확보할 수 있었습니다.</p>
+        <p>연간 약 <span class="highlight">300억</span> 규모의 빌링-정산 데이터를 관리하는 그룹웨어 백오피스에서, 빌링/정산 통합 구조를 <span class="highlight">분리 구조</span>로 전환하는 프로젝트를 진행했습니다. 연동 오류·데이터 불일치·정산 마감 지연을 시스템 분리 및 연동 재설계로 해결하여 2025년 6월 정산 시스템 안정 오픈을 완료했고, <span class="highlight">정산 데이터 정합성 100%</span>를 확보했습니다.</p>
         <p class="sub-title">문제</p>
         <ul>
           <li>월말 정산 마감 시, 빌링·정산 데이터 불일치를 엑셀 기반 수작업 검증으로 처리</li>
@@ -516,9 +525,9 @@
         </ul>
         <p class="sub-title">성과</p>
         <ul>
-          <li>월말 매출/매입 마감 소요 시간 1주일 → 1~2시간으로 단축 (개발팀 담당파트 기준)</li>
-          <li>월 약 수천만 원 규모로 발생하던 정산 데이터 정합성 이슈 완전 해소</li>
-          <li>엑셀 기반의 수작업 정산 데이터 검증 및 DB 직접 수정 작업을 제거하여 업무 안정성 및 신뢰도 향상</li>
+          <li>월말 매출/매입 마감 소요 시간 <span class="highlight">1주일 → 1~2시간</span>으로 단축 (개발팀 담당 파트 기준)</li>
+          <li>월 수천만 원 규모로 발생하던 정산 데이터 정합성 이슈 <span class="highlight">완전 해소</span></li>
+          <li>엑셀 수작업 검증·DB 직접 수정 제거로 업무 안정성 및 신뢰도 향상</li>
         </ul>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 플랫폼기획팀, 정산팀</span><span>기술 스택: SpringBoot, Hibernate, JPA, Java, Bitbucket(Git), Postgresql, Linux, Jira, Vue.js</span></p>
       </div>
@@ -535,11 +544,11 @@
         </ul>
         <p class="sub-title">주요 기여</p>
         <ul>
-          <li><strong>대용량 엑셀 다운로드 OOM 발생 문제 개선</strong> (전체 데이터 기준 200초 → 60초 미만으로 개선) — OOM에 취약한 XSSFWorkbook에서 스트리밍 방식의 SXSSFWorkbook 라이브러리로 변경하여 메모리 사용량 감소. cross join, 불필요한 entity load 제거 등의 쿼리 개선 및 QueryProjection 방식으로 변경하여 메모리 사용량 감소</li>
-          <li><strong>주문 케이스별 복잡한 로직의 유지보수 문제 해결</strong> — 공통 인터페이스를 설계하고 주문 타입에 따라 서비스 구현체를 동적으로 로딩하도록 개선</li>
-          <li><strong>만료일이 도래한 멤버십 수동 해지 프로세스를 스프링 배치로 자동화</strong>하여 불필요한 업무포인트를 제거하고, 해지에 실패할 경우 다우메신저로 알림 전송하도록 개발</li>
-          <li><strong>신규 고객포털 오픈 전 약 13,000명의 담당자에게 초대코드를 담은 초대장 일괄 전송 및 재시도 전략 수립</strong></li>
-          <li><strong>BackOffice ddl-auto none → validate로 변경</strong>하여 데이터 일관성을 높이는데 기여 — int 타입, String 타입, 날짜타입 등 Entity와 PostgreSQL 간 불일치 문제 일괄 작업. 항상 시퀀스를 호출해서 아이디를 직접 넣는 방식으로 DBA와 정책 결정 후 ID 생성 전략 일괄 변경</li>
+          <li><strong>대용량 엑셀 다운로드 OOM 개선</strong> — 전체 데이터 기준 <span class="highlight">200초 → 60초 미만</span>. XSSFWorkbook → SXSSFWorkbook 스트리밍 전환, 쿼리 개선 및 QueryProjection 적용으로 메모리 사용량 감소</li>
+          <li><strong>주문 케이스별 복잡 로직 유지보수성 개선</strong> — 공통 인터페이스 설계 후 주문 타입별 서비스 구현체 동적 로딩으로 개선</li>
+          <li><strong>만료 멤버십 해지 프로세스 Spring Batch 자동화</strong> — 수동 업무 제거, 해지 실패 시 다우메신저 알림 발송</li>
+          <li><strong>신규 고객포털 오픈 전 <span class="highlight">약 13,000명</span> 담당자 대상 초대장 일괄 전송 및 재시도 전략 수립</strong></li>
+          <li><strong>BackOffice ddl-auto none → validate 전환</strong> — Entity·PostgreSQL 타입 불일치 일괄 정리, DBA와 ID 생성 전략 정립 후 시퀀스 기반 일괄 적용으로 데이터 일관성 강화</li>
         </ul>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 사업부, 영업부, 기획팀, DBA, 내외부 클라이언트 등</span><span>기술 스택: SpringBoot, Hibernate, JPA, Java, Bitbucket(Git), Postgresql, Linux, Jira, Vue.js</span></p>
       </div>
@@ -559,10 +568,10 @@
         </ul>
         <p class="sub-title">주요 기여</p>
         <ul>
-          <li>기존 시스템에 영향 없이 알림 요청/응답 추적 구조와 다우메신저 알림 발송 기능을 독립적으로 설계 및 구현</li>
-          <li>서비스 개설 성공 시 실시간 알림, 실패 시 지연 알림(10분 후) 발송 처리 로직 구축</li>
-          <li>알림 상태 데이터화를 통해 담당자가 로그 분석 없이도 개설 성공/실패 상태를 실시간 파악 가능</li>
-          <li>스케줄링 기반 지연 알림으로 메일 시스템 지연 특성에 유연하게 대응</li>
+          <li>기존 시스템에 영향 없이 알림 요청/응답 추적 구조와 다우메신저 알림 발송을 <span class="highlight">독립 설계·구현</span></li>
+          <li>성공 시 <span class="highlight">실시간 알림</span>, 실패 시 <span class="highlight">지연 알림(10분 후)</span> 발송 로직 구축</li>
+          <li>알림 상태 데이터화로 로그 분석 없이 개설 성공/실패를 실시간 파악 가능</li>
+          <li>RabbitMQ·스케줄링 기반으로 메일 시스템 지연에 유연 대응</li>
         </ul>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 1인 개발</span><span>기술 스택: SpringBoot, RabbitMQ, Hibernate, JPA, Java</span></p>
       </div>
@@ -579,9 +588,9 @@
         </ul>
         <p class="sub-title">주요 기여</p>
         <ul>
-          <li>약 3,000개 이상의 고객사에 대한 요금제 전환 완료</li>
-          <li>연장 주문 시 무료에서 유료 상품으로 전환 가능한 공통 인터페이스를 설계 → 이후 요금제 전환 시 개발 공수를 1MM → 1MD로 최소화, 테스트 시나리오 검증만으로 사업부 니즈 충족</li>
-          <li>검증 시나리오 작성을 통해 예외 케이스를 최소화했고 전환 시점에 문제가 발생할 경우 메신저로 알림을 전송하도록 개발하여 즉각 대응하도록 프로세스 구축</li>
+          <li><span class="highlight">약 3,000개 이상</span> 고객사 요금제 전환 완료</li>
+          <li>연장 주문 시 무료→유료 전환용 공통 인터페이스 설계 → 이후 요금제 전환 시 개발 공수 <span class="highlight">1MM → 1MD</span>로 최소화, 테스트 시나리오 검증만으로 사업부 니즈 충족</li>
+          <li>검증 시나리오로 예외 케이스 최소화, 전환 시점 오류 발생 시 메신저 알림으로 즉시 대응 가능한 프로세스 구축</li>
         </ul>
         <p class="sub-title">상세 설명</p>
         <p>멤버십의 요금제가 인상되는 연장주문 시점에 전환 프로세스를 수행해야 한다. 전환 시점에 할인 승계, 사용중인 데이터 마이그레이션 등 검증 케이스가 많기 때문에 케이스별 TC/TS 등을 검증하는데 많은 시간을 할애함.</p>
@@ -599,11 +608,13 @@
         </ul>
         <p class="sub-title">주요 기여</p>
         <ul>
-          <li><strong>장기간 사용할 수 있는 Snowflake 기반 분산 PK의 비트단위 정책 수립</strong> (With DBA) — timestamp 41비트, sequence 12비트 → 69.73년동안 workerId당 1ms당 4096까지 중복없이 사용가능하도록 설계. workerId는 클러스터 +10개 & +수백개의 대형 VPC 고객사를 고려하여 10비트로 확정</li>
-          <li><strong>클러스터 단위로 PK Generator 전략 구현</strong>하여 유연한 채번전략을 활용할 수 있도록 설계 — 채팅용 Sequence과 기본 PK 전략인 Table Generator 커스텀 및 신규 Snowflake 구현체 구현. 각 구현체는 IdentifierGenerator, Configurable 구현한 CustomIdentifier 인터페이스를 상속받아 PK 전략별 configure()와 generate() 구현. @GenericGenerator + CustomIdentifier를 상속받은 CustomGenerator 클래스를 구현하여 클러스터 구동 시점에 프로퍼티에서 조회한 PK 전략에 맞는 configure 구현체 호출 및 PK 설정정보 세팅</li>
+          <li><strong><span class="highlight">Snowflake 기반 분산 PK</span> 비트 단위 정책 수립</strong> (With DBA) — timestamp 41비트, sequence 12비트로 약 69년간 workerId당 1ms당 4,096개까지 중복 없이 사용 가능. workerId 10비트로 클러스터·대형 VPC 고객사 확장 고려</li>
+          <li><strong>클러스터 단위 <span class="highlight">PK Generator 전략</span> 구현</strong> — 채팅용 Sequence, Table Generator 커스텀 및 Snowflake 구현체 구현. CustomIdentifier 인터페이스·@GenericGenerator 기반으로 클러스터 구동 시 프로퍼티에 따른 PK 전략 적용</li>
         </ul>
         <p class="sub-title">상세 설명</p>
-        <p>9개 클러스터(클러스터별 8억개의 PK 보유)와 12,000개 고객사에서, 클러스터별로 회사 PK가 중복 증가하여 클러스터 간 회사 이동이 불가능하고, 이로 인해 부하 집중 및 리소스 재활용 불가 문제가 확인됨. 기존 클러스터는 기존 PK 전략을 유지하고, 신규 클러스터로의 이관 시 마이그레이션 PK 규칙을 적용하며, 신규 클러스터에는 Snowflake 채번 방식을 병렬 적용하기 위해 클러스터별 PK Generator를 개발 및 적용하는 것이 목표. 테스트서버에서 다우메신저와 그룹웨어 등 전체 서비스에 영향을 미치기 때문에 모든 기능에 대한 전수 테스트 진행 완료. 채번 전략 설계 및 테스트서버 구현 & 테스트는 모두 진행하였으나 실제 당시 운영 배포는 HOLD — 사유: 현 다우오피스에 적용하지 않고, 25년 하반기 개발완료될 차세대 다우오피스에 해당 채번 전략을 적용하는 것으로 계획 변경 (개발시점: 24년 5월). 25년도 상반기에 차세대 다우오피스 개발팀에 인수인계 진행 (설계문서, 당시 PR과 리뷰 기록, WBS 등).</p>
+        <p><strong>배경</strong> — 9개 클러스터(클러스터당 약 8억 PK), 12,000개 고객사. 클러스터별 회사 PK가 중복 증가해 클러스터 간 회사 이동이 불가했고, 부하 집중·리소스 재활용 불가 문제가 있었음.</p>
+        <p><strong>목표</strong> — 기존 클러스터는 기존 PK 전략 유지, 신규 클러스터 이관 시 마이그레이션 PK 규칙 적용, 신규 클러스터에는 Snowflake 채번을 쓰기 위해 클러스터별 PK Generator 개발·적용.</p>
+        <p><strong>수행</strong> — 채번 전략 설계, 테스트서버 구현 및 다우메신저·그룹웨어 등 전체 서비스 전수 테스트 완료. 당시 운영 배포는 HOLD(현 다우오피스 미적용, 25년 하반기 차세대 다우오피스 적용 예정으로 계획 변경, 개발 시점 24년 5월). 25년 상반기 차세대 다우오피스 개발팀에 설계문서·PR·리뷰 기록·WBS 등 인수인계 완료.</p>
         <p class="project-meta" style="margin-top:12px;"><span>협업: DBA, 메일 엔지니어, QA 엔지니어, 백엔드 개발자 다수</span><span>기술 스택: SpringBoot, Hibernate, JPA, Java, Bitbucket(Git), Jira</span></p>
       </div>
 
@@ -618,7 +629,7 @@
           <li>모든 시나리오에 대한 신뢰성 확보를 위해 테스트케이스 작성 및 JUnit 테스트 구현</li>
         </ul>
         <p class="sub-title">주요 기여</p>
-        <p>신뢰할 수 있는 모든 외부 시스템을 대상으로 내부 데이터를 획득할 수 있는 창구 구현</p>
+        <p>인증된 외부 시스템이 내부 데이터에 접근할 수 있는 <span class="highlight">OAuth 2.0 기반 Open API</span> 창구 구현 — 단순 조회는 API, 데이터 등록은 RabbitMQ로 서비스 간 의존성 최소화</p>
         <p class="sub-title">상세 설명</p>
         <p>Back Office에서 관리하지 않는 인증된 외부시스템이 내부 데이터에 접근할 수 있도록 Open API 구현</p>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 외부 시스템 개발자(2명), 다우오피스 개발자(1명)</span><span>기술 스택: SpringBoot, RabbitMQ, Hibernate, JPA, Java, Bitbucket(Git), Jira</span></p>
@@ -636,9 +647,9 @@
         </ul>
         <p class="sub-title">주요 기여</p>
         <ul>
-          <li>13,000개 이상의 기업을 대상으로 SaaS 복지몰 오픈</li>
-          <li>인터페이스 기반 설계로 클라이언트별 구현체와 외부 클라이언트 정보만 등록하면 즉시 연동 가능하여 테스트 기간 포함 2~3일이면 신규 클라이언트 SSO 오픈 가능하도록 설계 → 효율성과 확장성을 높임</li>
-          <li>테스트 시나리오와 JUnit 단위 테스트 전부 통과할 때까지 반복 검증 수행 (신뢰성 확보) → 외부 클라이언트 측 보안 이슈를 2차례 발견하여 즉각 재개발 요청 및 재검수 진행</li>
+          <li><span class="highlight">13,000개 이상</span> 기업 대상 SaaS 복지몰 오픈</li>
+          <li>인터페이스 기반 설계로 클라이언트별 구현체·외부 클라이언트 정보만 등록하면 연동 가능, 테스트 포함 <span class="highlight">2~3일</span> 내 신규 클라이언트 SSO 오픈 가능하도록 설계</li>
+          <li>테스트 시나리오·JUnit 단위 테스트 전부 통과까지 반복 검증 — 외부 클라이언트 보안 이슈 2건 발견 후 재개발·재검수로 신뢰성 확보</li>
         </ul>
         <p class="sub-title">상세 설명</p>
         <p>13,000개의 기업을 대상으로 25년 1월 설 선물 사업을 위해 다우오피스 내 LG 복지몰 오픈</p>
