@@ -619,7 +619,7 @@
         <p class="exp-company">서버 백엔드 개발자 · 사방넷 WMS</p>
         <p class="exp-meta"><span>(주)다우기술</span><span>2025.07 ~ 현재</span></p>
         <ul>
-          <li>엑셀 발주 일괄등록 PHP 배치를 <span class="highlight">Spring Batch</span>로 전환, 처리 시간 <span class="highlight">93.75% 감소(12분→45초)</span> 및 <span class="highlight">OOM 해결</span></li>
+          <li>엑셀 발주 일괄등록 PHP 배치를 <span class="highlight">Spring Batch</span>로 전환 및 성능 개선, 처리 시간 <span class="highlight">93.75% 감소(12분→45초)</span> 및 <span class="highlight">OOM 해결</span></li>
           <li><span class="highlight">Strategy 패턴</span> 기반 물류 피킹통합 기능 확장 및 주문 단위 출고 작업 신설, 출고지시 자동화 배치 구현(<span class="highlight">JUnit 검증</span>)</li>
           <li><span class="highlight">1,200개 물류사</span> 규모의 풀필먼트 WMS 시스템 기능 개선·운영을 통한 안정성 및 성능 최적화 기여</li>
         </ul>
@@ -680,7 +680,7 @@
         <h3 class="project-title">1. WMS 물류 — 엑셀 발주 일괄등록 배치 전환 (PHP → Spring Batch)</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>PHP / 스프링 배치</span></p>
         <p class="sub-title">서비스 설명</p>
-        <p>PHP 기반 엑셀 발주 배치를 Spring Batch로 전환한 프로젝트입니다. PHP 시스템에서 15,000개 데이터 처리 시 12분 소요 또는 OOM 발생 문제가 있었으며, Spring Batch 전환 초기 동일 문제가 발생했습니다.</p>
+        <p>PHP 기반 엑셀 발주 배치를 Spring Batch로 전환한 프로젝트입니다. PHP 시스템에서 엑셀 파일 당 15,000개 데이터 처리 시 12분 소요 또는 OOM 발생 문제가 있었으며, Spring Batch 전환 초기 동일 문제가 발생했습니다.</p>
         <p>개별 조회 및 처리를 Bulk 처리로 전환하고 배치 단위 메모리 해제를 구현하여 OOM 문제를 해결한 프로젝트입니다.</p>
         <p class="sub-title">책임</p>
         <ul>
@@ -692,7 +692,7 @@
         <!-- <p class="sub-title">주요 기여</p> -->
         <p><strong>성능 개선</strong></p>
         <ul>
-          <li>처리 시간 <span class="highlight">93.75% 감소: 12분 → 45초</span> (16배 속도 향상). 개별 조회·처리를 전부 <span class="highlight">Bulk 처리</span>로 전환, N+1 쿼리 해결: 30,000번 → 1번 (<span class="highlight">99.997% 감소</span>)</li>
+          <li>처리 시간 <span class="highlight">93.75% 감소: 12분 → 45초</span> (16배 속도 향상). 개별 조회·처리를 전부 <span class="highlight">Bulk 처리</span>로 전환, N+1 쿼리 해결: 15,000번 → 1번 (<span class="highlight">99.997% 감소</span>)</li>
           <li>PHP 및 Spring Batch 초기 버전에서 발생하던 <span class="highlight">OOM 해결</span> — BatchInsertExecutor로 배치 단위 메모리 해제 구현, Peak 메모리 <span class="highlight">37.5% 감소</span> (400MB+ → 250MB)</li>
         </ul>
         <p><strong>아키텍처 개선</strong></p>
@@ -709,7 +709,7 @@
           </thead>
           <tbody>
             <tr><td>처리 시간 (15,000 row)</td><td>약 12분</td><td><span class="highlight">45초 (93.75% 감소)</span></td></tr>
-            <tr><td>판매상품 조회 쿼리</td><td>30,000번</td><td><span class="highlight">1번 (99.997% 감소)</span></td></tr>
+            <tr><td>판매상품 조회 쿼리</td><td>15,000번</td><td><span class="highlight">1번 (99.997% 감소)</span></td></tr>
             <tr><td>Peak 메모리</td><td>400MB+ (OOM 발생)</td><td><span class="highlight">약 250MB (OOM 해결)</span></td></tr>
           </tbody>
         </table>
@@ -828,11 +828,14 @@
         <p class="sub-title">주요 기여</p>
         <ul>
           <li><span class="highlight">약 3,000개 이상</span> 고객사 요금제 전환 완료</li>
-          <li>연장 주문 시 무료→유료 전환용 공통 인터페이스 설계 → 이후 요금제 전환 시 개발 공수 <span class="highlight">1MM → 1MD</span>로 최소화, 테스트 시나리오 검증만으로 사업부 니즈 충족</li>
+          <li>요금제 전환 인터페이스를 설계 및 구현하여 이후 요금제 전환 시 개발 공수 <span class="highlight">1MM → 1MD</span>로 최소화, 테스트 시나리오 검증만으로 사업부 니즈 충족</li>
           <li>검증 시나리오로 예외 케이스 최소화, 전환 시점 오류 발생 시 메신저 알림으로 즉시 대응 가능한 프로세스 구축</li>
         </ul>
         <p class="sub-title">상세 설명</p>
-        <p>멤버십의 요금제가 인상되는 연장주문 시점에 전환 프로세스를 수행해야 한다. 전환 시점에 할인 승계, 사용중인 데이터 마이그레이션 등 검증 케이스가 많기 때문에 케이스별 TC/TS 등을 검증하는데 많은 시간을 할애함.</p>
+        <p>
+          멤버십의 요금제가 변경될 경우 요금제 전환을 하기 위해 고객사별 할인 승계, 사용중인 데이터 마이그레이션 등 수 많은 검증 케이스를 통과해야 했습니다. <br />
+          현재는 요금제 전환 인터페이스를 활용하여 요금제 전환이 필요한 구요금제 ↔ 신요금제 간의 데이터 관계만 설정하면 신속하게 전환이 가능하도록 개선했습니다.
+        </p>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 사업부, 개발자(2명)</span><span>기술 스택: SpringBoot, Hibernate, JPA, Java</span></p>
       </div>
 
@@ -841,6 +844,7 @@
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 다우오피스 SaaS 서비스</span></p>
         <p class="sub-title">책임</p>
         <ul>
+          <li><strong>운영 배포는 보류된 프로젝트</strong></li>
           <li>클러스터 단위로 PK Generator를 적용하기 위한 채번 전략 재수립 및 구현</li>
           <li>AS-IS 다우오피스 PK 전략 변경 후 Cloud/VPC 등 환경별 테스트</li>
           <li>PK 마이그레이션 이후 DB에 String 타입으로 저장된 마이그레이션이 불가능한 PK에 내부링크 적용 — 내부링크: 마이그레이션 이전 PK를 담은 Model을 Client에게 전달할 때 마이그레이션 PK로 변경</li>
@@ -853,8 +857,8 @@
         <p class="sub-title">상세 설명</p>
         <p><strong>배경</strong> — 9개 클러스터(클러스터당 약 8억 PK), 12,000개 고객사. 클러스터별 회사 PK가 중복 증가해 클러스터 간 회사 이동이 불가했고, 부하 집중·리소스 재활용 불가 문제가 있었음.</p>
         <p><strong>목표</strong> — 기존 클러스터는 기존 PK 전략 유지, 신규 클러스터 이관 시 마이그레이션 PK 규칙 적용, 신규 클러스터에는 Snowflake 채번을 쓰기 위해 클러스터별 PK Generator 개발·적용.</p>
-        <p><strong>수행</strong> — 채번 전략 설계, 테스트서버 구현 및 다우메신저·그룹웨어 등 전체 서비스 전수 테스트 완료.</p>
-        <p>당시 운영 배포는 HOLD(현 다우오피스 미적용, 25년 하반기 차세대 다우오피스 적용 예정으로 계획 변경, 개발 시점 24년 5월). 25년 상반기 차세대 다우오피스 개발팀에 설계문서·PR·리뷰 기록·WBS 등 인수인계 완료.</p>
+        <p><strong>수행</strong> — 채번 전략 설계, 개발 서버 구현 및 다우메신저·그룹웨어 등 전체 서비스 전수 테스트 완료. 당시 사업상의 이유로 운영 배포는 HOLD.</p>
+        <p><strong>참고</strong> — 차세대 다우오피스 개발팀에 인수인계 완료. 이후 다음 개발자가 설계 기반으로 채번 모듈을 개발하여 다우오피스 4.0에 구현, 현재 모든 다우오피스 모듈에서 채번 모듈을 활용해 운영 중.</p>
         <p class="project-meta" style="margin-top:12px;"><span>협업: DBA, 메일 엔지니어, QA 엔지니어, 백엔드 개발자 다수</span><span>기술 스택: SpringBoot, Hibernate, JPA, Java, Bitbucket(Git), Jira</span></p>
       </div>
 
@@ -887,12 +891,12 @@
         </ul>
         <p class="sub-title">주요 기여</p>
         <ul>
-          <li><span class="highlight">13,000개 이상</span> 기업 대상 SaaS 복지몰 오픈</li>
+          <li>다우오피스 이용 기업 대상 <span class="highlight">SaaS 복지몰 오픈</span></li>
           <li>인터페이스 기반 설계로 클라이언트별 구현체·외부 클라이언트 정보만 등록하면 연동 가능, 테스트 포함 <span class="highlight">2~3일</span> 내 신규 클라이언트 SSO 오픈 가능하도록 설계</li>
           <li>테스트 시나리오·JUnit 단위 테스트 전부 통과까지 반복 검증 — 외부 클라이언트 보안 이슈 2건 발견 후 재개발·재검수로 신뢰성 확보</li>
         </ul>
         <p class="sub-title">상세 설명</p>
-        <p>13,000개의 기업을 대상으로 25년 1월 설 선물 사업을 위해 다우오피스 내 LG 복지몰 오픈</p>
+        <p>다우오피스 이용 기업을 대상으로 25년 1월 설 선물 사업을 위해 다우오피스 내 LG 복지몰 오픈</p>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 다우오피스 개발자(1명), 외부 클라이언트 개발자(1명), 기획, 사업</span><span>기술 스택: SpringBoot, Hibernate, JPA, Java, Vue.js, Bitbucket(Git), Jira</span></p>
       </div>
     </section>
