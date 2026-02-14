@@ -231,6 +231,21 @@
       font-size: 13px;
       color: #666;
       margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .career-sec .project-meta span {
+      display: inline-block;
+    }
+
+    .career-sec .project-meta span + span::before {
+      content: "|";
+      color: #ccc;
+      margin-right: 12px;
+      margin-left: -4px;
     }
 
     .career-sec .sub-title {
@@ -450,6 +465,17 @@
       .career-sec .project-meta {
         font-size: 11px;
         margin-bottom: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .career-sec .project-meta span + span::before {
+        content: "|";
+        color: #ccc;
+        margin-right: 10px;
+        margin-left: -3px;
       }
 
       .career-sec .sub-title {
@@ -678,7 +704,7 @@
 
       <div class="project">
         <h3 class="project-title">1. WMS 물류 — 엑셀 발주 일괄등록 배치 전환 (PHP → Spring Batch)</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>PHP / 스프링 배치</span></p>
+        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>PHP / 스프링 배치</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p>PHP 기반 엑셀 발주 배치를 Spring Batch로 전환한 프로젝트입니다. PHP 시스템에서 엑셀 파일 당 15,000개 데이터 처리 시 12분 소요 또는 OOM 발생 문제가 있었으며, Spring Batch 전환 초기 동일 문제가 발생했습니다.</p>
         <p>개별 조회 및 처리를 Bulk 처리로 전환하고 배치 단위 메모리 해제를 구현하여 OOM 문제를 해결한 프로젝트입니다.</p>
@@ -718,7 +744,7 @@
 
       <div class="project">
         <h3 class="project-title">2. 물류 피킹통합 기능 확장 및 주문 단위 출고 작업 기능 신설, 출고지시 자동화 배치 구현</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>Frontend / Backend / 스프링 배치</span></p>
+        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>Frontend / Backend / 스프링 배치</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p><strong>목적:</strong> 출고 작업 효율성 향상을 위한 다양한 피킹 방식 지원. <br /><strong>핵심 기능:</strong> 출고주문별조회 메뉴 신설, 피킹통합 기능, 출고지시 자동화 배치. <br /><strong>배경:</strong> 기존 출고회차 기준 피킹 방식의 한계 해소 및 출고 프로세스 자동화 확대.</p>
         <p>프로젝트의 핵심 과제는 2개월 일정 준수와 함께 출고/택배접수 로직 신규 개발의 신뢰성 확보, 그리고 기존 로직 확장 시 발생 가능한 위험도 제거였습니다.</p>
@@ -744,7 +770,7 @@
 
       <div class="project">
         <h3 class="project-title">3. 정산 시스템 연동 안정화를 통해 데이터 정합성 100% 확보 및 회계 리스크 제거</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice 빌링 시스템 / 신정산 시스템</span></p>
+        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice 빌링 시스템 / 신정산 시스템</span><span>기여도: <span class="highlight">80%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p>연간 약 <span class="highlight">300억</span> 규모의 빌링-정산 데이터를 관리하는 그룹웨어 백오피스에서, 빌링/정산 통합 구조를 <span class="highlight">분리 구조</span>로 전환하는 프로젝트를 진행했습니다.</p>
         <p>연동 오류·데이터 불일치·정산 마감 지연을 시스템 분리 및 연동 재설계로 해결하여 2025년 6월 정산 시스템 안정 오픈을 완료했고, <span class="highlight">정산 데이터 정합성 100%</span>를 확보했습니다.</p>
@@ -772,7 +798,7 @@
 
       <div class="project">
         <h3 class="project-title">4. 백오피스 & 4개의 플랫폼서비스 개발 & 운영 & 트러블슈팅</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice / 고객 인입 포털 / 외부 API 연동 서비스 / 클라이언트 조직도 동기화 서비스 등</span></p>
+        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice / 고객 인입 포털 / 외부 API 연동 서비스 / 클라이언트 조직도 동기화 서비스 등</span><span>기여도: <span class="highlight">40%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
           <li>주문, 계약, 환불, 정산 등에 대한 코드 리팩토링 및 운영</li>
@@ -793,7 +819,7 @@
 
       <div class="project">
         <h3 class="project-title">5. RabbitMQ & Scheduling 기반의 서비스 신규개설 요청에 대한 통합 알림 프로세스 개발</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice</span></p>
+        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p>고객의 멤버십 서비스 개설 요청 시, 총 6개 시스템(다우오피스, 외부 API 서버, 조직도 동기화 서버, 회계 시스템, 메일 시스템, DNS 등)에 대해 개설 처리를 수행함. 기존에는 서비스별 개설 성공/실패 여부를 로그를 통해 개별 분석해야 하는 번거로움이 있었음.</p>
         <p>운영 효율을 높이기 위한 목적에서, 기존 시스템에 영향 없이 확장 가능한 비동기 알림 구조가 필요하다고 판단하여 자발적으로 기획하고 구현.</p>
@@ -817,7 +843,7 @@
 
       <div class="project">
         <h3 class="project-title">6. 멤버십 구요금제 → 신요금제로 전환 프로세스 설계 및 구현</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice / 고객 인입 포털</span></p>
+        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice / 고객 인입 포털</span><span>기여도: <span class="highlight">50%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
           <li>구요금제 ↔ 신요금제가 보유한 상품 매핑 전략 수립</li>
@@ -841,7 +867,7 @@
 
       <div class="project">
         <h3 class="project-title">7. 클러스터간 PK 중복없이 회사를 이관하기 위한 다우오피스 전체 클러스터 채번 전략 재수립</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 다우오피스 SaaS 서비스</span></p>
+        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 다우오피스 SaaS 서비스</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
           <li><strong>운영 배포는 보류된 프로젝트</strong></li>
@@ -864,7 +890,7 @@
 
       <div class="project">
         <h3 class="project-title">8. 복수 클라이언트 확장을 고려한 SSO 연동 표준 서비스 설계 및 개발 (다우오피스 LG 복지몰 오픈)</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 다우오피스 외부 클라이언트 연동 서비스</span></p>
+        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 다우오피스 외부 클라이언트 연동 서비스</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
           <li>다우오피스와 연동 서비스간 2차 인증을 통한 신뢰성 확보</li>
