@@ -113,7 +113,7 @@
     }
 
     /* 경력 요약 */
-    .exp-overview { margin-bottom: 40px; }
+    .exp-overview { margin-bottom: 56px; }
     .exp-item {
       margin-bottom: 28px;
       padding-bottom: 24px;
@@ -135,15 +135,17 @@
 
     /* 섹션: 제목만, 박스 없음 */
     .sec {
-      margin-bottom: 40px;
+      margin-bottom: 56px;
     }
 
     .sec-title {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 20px;
-      color: #1a1a1a;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #e07a5f;
     }
 
     /* 기술적 성과: 문단만 */
@@ -206,7 +208,8 @@
     .techs span { font-weight: 500; }
 
     /* 경력기술서 상세 — 여백·구분선·타이포만 */
-    .career-sec { margin-top: 56px; padding-top: 40px; border-top: 1px solid #e0e0e0; }
+    .career-sec { margin-top: 56px; padding-top: 0; }
+    .career-sec .sec-title { border-bottom: none; padding-bottom: 0; }
 
     .career-sec .project {
       margin-bottom: 0;
@@ -245,7 +248,19 @@
       font-weight: 400;
       color: #444;
       margin-bottom: 8px;
-      line-height: 1.7;
+      line-height: 1.9;
+    }
+
+    /* 서비스 설명 부분 가독성 개선 */
+    .career-sec .sub-title + p {
+      margin-bottom: 12px;
+      line-height: 2.0;
+    }
+
+    .career-sec .sub-title + p + p {
+      margin-top: 8px;
+      margin-bottom: 12px;
+      line-height: 2.0;
     }
 
     .career-sec ul { padding-left: 22px; margin-bottom: 16px; }
@@ -289,12 +304,279 @@
       .photo { width: 220px; height: 220px; min-width: 220px; min-height: 220px; margin: 0 auto; }
     }
 
+    @page {
+      size: A4;
+      margin: 20mm 25mm;
+    }
+
     @media print {
-      .page { max-width: 100%; padding: 24px; }
-      .top { border-bottom-color: #ddd; }
-      .career-sec { border-top-color: #ddd; }
-      .career-sec .project { break-inside: avoid; }
-      .highlight { background: rgba(255, 236, 179, 0.6); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        background: #fff;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .intro {
+        font-size: 13px;
+        margin-bottom: 32px;
+        line-height: 1.65;
+      }
+
+      .sec {
+        margin-bottom: 44px;
+      }
+
+      .sec-title {
+        font-size: 19px;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e0e0e0;
+        color: #e07a5f;
+      }
+
+      .exp-item {
+        margin-bottom: 20px;
+        padding-bottom: 18px;
+      }
+
+      .exp-company {
+        font-size: 15px;
+      }
+
+      .exp-item ul, .exp-item li {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .exp-skills {
+        font-size: 11px;
+        margin-top: 6px;
+      }
+
+      .project {
+        margin-bottom: 24px;
+      }
+
+      .project-title {
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+
+      .project-meta {
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      .project-summary {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      .project ul, .project li {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .techs {
+        font-size: 10px;
+        gap: 6px;
+      }
+
+      .career-sec {
+        margin-top: 40px;
+        padding-top: 0;
+      }
+
+      .career-sec .sec-title {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .career-sec .project {
+        padding-top: 32px;
+        margin-bottom: 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .career-sec .project:first-child {
+        padding-top: 0;
+        border-top: none;
+      }
+
+      .career-sec {
+        page-break-before: always;
+        break-before: page;
+      }
+
+      .career-sec .sec-title {
+        page-break-after: avoid;
+        break-after: avoid;
+        page-break-before: auto;
+        break-before: auto;
+        margin-bottom: 12px;
+        padding-bottom: 0;
+      }
+
+      .career-sec .sec-title + .project {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+      }
+
+      .career-sec .project:first-child {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        padding-top: 0;
+        margin-top: 0;
+      }
+
+      .career-sec .project:not(:first-child) {
+        page-break-before: always;
+        break-before: page;
+      }
+
+      .career-sec .project-title {
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .career-sec .project-meta {
+        font-size: 11px;
+        margin-bottom: 16px;
+      }
+
+      .career-sec .sub-title {
+        font-size: 12px;
+        margin-top: 20px;
+        margin-bottom: 8px;
+      }
+
+      .career-sec p, .career-sec li {
+        font-size: 12px;
+        margin-bottom: 6px;
+        line-height: 1.8;
+      }
+
+      /* 서비스 설명 부분 가독성 개선 (인쇄용) */
+      .career-sec .sub-title + p {
+        margin-bottom: 10px;
+        line-height: 1.9;
+      }
+
+      .career-sec .sub-title + p + p {
+        margin-top: 6px;
+        margin-bottom: 10px;
+        line-height: 1.9;
+      }
+
+      .career-sec ul {
+        padding-left: 18px;
+        margin-bottom: 12px;
+      }
+
+      table {
+        font-size: 12px;
+        margin: 8px 0;
+      }
+
+      th, td {
+        padding: 6px 10px;
+      }
+
+      .edu-item, .cert-item {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      .highlights p {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .page {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .top {
+        border-bottom-color: #ddd;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        gap: 28px;
+        margin-bottom: 32px;
+        padding-bottom: 24px;
+      }
+
+      .photo {
+        width: 220px;
+        height: 220px;
+        min-width: 220px;
+        min-height: 220px;
+      }
+
+      .top-text h1 {
+        font-size: 22px;
+        margin-bottom: 2px;
+      }
+
+      .top-text .role {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .top-links {
+        gap: 10px 16px;
+      }
+
+      .top-links .link-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .sec-title {
+        page-break-after: avoid;
+        break-after: avoid;
+        page-break-before: auto;
+        break-before: auto;
+      }
+
+      .sec-title + * {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+
+
+      .highlight {
+        background: rgba(255, 236, 179, 0.6) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .photo img {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a[href^="http"]:after {
+        content: "";
+      }
     }
   </style>
 </head>
@@ -325,7 +607,8 @@
     </header>
 
     <p class="intro">
-      Java & Spring 기반의 <span class="highlight">6년차</span> 서버 백엔드 엔지니어 원준호입니다. 다우오피스 플랫폼서비스팀에서 <span class="highlight">4개 서비스 연동·개발</span>과 대규모 데이터에 대한 <span class="highlight">정합성 확보</span>를 담당했고, 이후 사방넷 WMS에서 레거시 시스템 개선과 <span class="highlight">성능 최적화</span>를 진행한 경험이 있습니다. 확장 가능한 아키텍처 설계와 코드 품질 향상에 관심이 많아, 코드 스타일·컨벤션 규칙 정립과 코드리뷰 문화 형성으로 팀의 기술적 성숙도 향상에 기여하고 있습니다.
+      Java & Spring 기반의 <span class="highlight">6년차</span> 서버 백엔드 엔지니어 원준호입니다. <br />
+      다우오피스 플랫폼서비스팀에서 <span class="highlight">4개 서비스 연동·개발</span>과 대규모 데이터에 대한 <span class="highlight">정합성 확보</span>를 담당했고, 이후 사방넷 WMS에서 레거시 시스템 개선과 <span class="highlight">성능 최적화</span>를 진행한 경험이 있습니다. 확장 가능한 아키텍처 설계와 코드 품질 향상에 관심이 많아, 코드 스타일·컨벤션 규칙 정립과 코드리뷰 문화 형성으로 팀의 기술적 성숙도 향상에 기여하고 있습니다.
     </p>
 
     <!-- 경력 요약 (Work Experience Overview) -->
@@ -445,7 +728,8 @@
         <h3 class="project-title">1. WMS 물류 — 엑셀 발주 일괄등록 배치 전환 (PHP → Spring Batch)</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>PHP / 스프링 배치</span></p>
         <p class="sub-title">서비스 설명</p>
-        <p>PHP 기반 엑셀 발주 배치를 Spring Batch로 전환한 프로젝트입니다. PHP 시스템에서 15,000개 데이터 처리 시 12분 소요 또는 OOM 발생 문제가 있었으며, Spring Batch 전환 초기 동일 문제가 발생했습니다. 개별 조회 및 처리를 Bulk 처리로 전환하고 배치 단위 메모리 해제를 구현하여 OOM 문제를 해결한 프로젝트입니다.</p>
+        <p>PHP 기반 엑셀 발주 배치를 Spring Batch로 전환한 프로젝트입니다. PHP 시스템에서 15,000개 데이터 처리 시 12분 소요 또는 OOM 발생 문제가 있었으며, Spring Batch 전환 초기 동일 문제가 발생했습니다.</p>
+        <p>개별 조회 및 처리를 Bulk 처리로 전환하고 배치 단위 메모리 해제를 구현하여 OOM 문제를 해결한 프로젝트입니다.</p>
         <p class="sub-title">책임</p>
         <ul>
           <li>Spring Batch 아키텍처 설계 및 구현 (Job, Step, Chunk 기반 처리 흐름 설계)</li>
@@ -484,8 +768,9 @@
         <h3 class="project-title">2. 물류 피킹통합 기능 확장 및 주문 단위 출고 작업 기능 신설, 출고지시 자동화 배치 구현</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>Frontend / Backend / 스프링 배치</span></p>
         <p class="sub-title">서비스 설명</p>
-        <p><strong>목적:</strong> 출고 작업 효율성 향상을 위한 다양한 피킹 방식 지원. <strong>핵심 기능:</strong> 출고주문별조회 메뉴 신설, 피킹통합 기능, 출고지시 자동화 배치. <strong>배경:</strong> 기존 출고회차 기준 피킹 방식의 한계 해소 및 출고 프로세스 자동화 확대.</p>
-        <p>프로젝트의 핵심 과제는 2개월 일정 준수와 함께 출고/택배접수 로직 신규 개발의 신뢰성 확보, 그리고 기존 로직 확장 시 발생 가능한 위험도 제거였습니다. 데이터 구조 차이를 Strategy 패턴으로 해결하고, 서비스 간 완전 분리 아키텍처로 기존 기능 사이드 이펙트를 제거했습니다. 특히 출고지시 자동화 기능의 재고 이동과 할당 정합성을 JUnit + Mockito 기반 단위 테스트로 검증하여 다양한 케이스에 대한 테스트 커버리지를 확보했습니다.</p>
+        <p><strong>목적:</strong> 출고 작업 효율성 향상을 위한 다양한 피킹 방식 지원. <br /><strong>핵심 기능:</strong> 출고주문별조회 메뉴 신설, 피킹통합 기능, 출고지시 자동화 배치. <br /><strong>배경:</strong> 기존 출고회차 기준 피킹 방식의 한계 해소 및 출고 프로세스 자동화 확대.</p>
+        <p>프로젝트의 핵심 과제는 2개월 일정 준수와 함께 출고/택배접수 로직 신규 개발의 신뢰성 확보, 그리고 기존 로직 확장 시 발생 가능한 위험도 제거였습니다.</p>
+        <p>데이터 구조 차이를 Strategy 패턴으로 해결하고, 서비스 간 완전 분리 아키텍처로 기존 기능 사이드 이펙트를 제거했습니다. 특히 출고지시 자동화 기능의 재고 이동과 할당 정합성을 JUnit + Mockito 기반 단위 테스트로 검증하여 다양한 케이스에 대한 테스트 커버리지를 확보했습니다.</p>
         <p class="sub-title">책임</p>
         <ul>
           <li>기간: 2개월, 1인 개발(설계/개발/TC/오픈 전 과정)</li>
@@ -509,7 +794,8 @@
         <h3 class="project-title">3. 정산 시스템 연동 안정화를 통해 데이터 정합성 100% 확보 및 회계 리스크 제거</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice 빌링 시스템 / 신정산 시스템</span></p>
         <p class="sub-title">서비스 설명</p>
-        <p>연간 약 <span class="highlight">300억</span> 규모의 빌링-정산 데이터를 관리하는 그룹웨어 백오피스에서, 빌링/정산 통합 구조를 <span class="highlight">분리 구조</span>로 전환하는 프로젝트를 진행했습니다. 연동 오류·데이터 불일치·정산 마감 지연을 시스템 분리 및 연동 재설계로 해결하여 2025년 6월 정산 시스템 안정 오픈을 완료했고, <span class="highlight">정산 데이터 정합성 100%</span>를 확보했습니다.</p>
+        <p>연간 약 <span class="highlight">300억</span> 규모의 빌링-정산 데이터를 관리하는 그룹웨어 백오피스에서, 빌링/정산 통합 구조를 <span class="highlight">분리 구조</span>로 전환하는 프로젝트를 진행했습니다.</p>
+        <p>연동 오류·데이터 불일치·정산 마감 지연을 시스템 분리 및 연동 재설계로 해결하여 2025년 6월 정산 시스템 안정 오픈을 완료했고, <span class="highlight">정산 데이터 정합성 100%</span>를 확보했습니다.</p>
         <p class="sub-title">문제</p>
         <ul>
           <li>월말 정산 마감 시, 빌링·정산 데이터 불일치를 엑셀 기반 수작업 검증으로 처리</li>
@@ -557,7 +843,8 @@
         <h3 class="project-title">5. RabbitMQ & Scheduling 기반의 서비스 신규개설 요청에 대한 통합 알림 프로세스 개발</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice</span></p>
         <p class="sub-title">서비스 설명</p>
-        <p>고객의 멤버십 서비스 개설 요청 시, 총 6개 시스템(다우오피스, 외부 API 서버, 조직도 동기화 서버, 회계 시스템, 메일 시스템, DNS 등)에 대해 개설 처리를 수행함. 기존에는 서비스별 개설 성공/실패 여부를 로그를 통해 개별 분석해야 하는 번거로움이 있었음. 운영 효율을 높이기 위한 목적에서, 기존 시스템에 영향 없이 확장 가능한 비동기 알림 구조가 필요하다고 판단하여 자발적으로 기획하고 구현.</p>
+        <p>고객의 멤버십 서비스 개설 요청 시, 총 6개 시스템(다우오피스, 외부 API 서버, 조직도 동기화 서버, 회계 시스템, 메일 시스템, DNS 등)에 대해 개설 처리를 수행함. 기존에는 서비스별 개설 성공/실패 여부를 로그를 통해 개별 분석해야 하는 번거로움이 있었음.</p>
+        <p>운영 효율을 높이기 위한 목적에서, 기존 시스템에 영향 없이 확장 가능한 비동기 알림 구조가 필요하다고 판단하여 자발적으로 기획하고 구현.</p>
         <p class="sub-title">책임</p>
         <ul>
           <li>기존에 구축된 서비스 개설 요청 및 응답 큐 구조를 활용</li>
@@ -614,7 +901,8 @@
         <p class="sub-title">상세 설명</p>
         <p><strong>배경</strong> — 9개 클러스터(클러스터당 약 8억 PK), 12,000개 고객사. 클러스터별 회사 PK가 중복 증가해 클러스터 간 회사 이동이 불가했고, 부하 집중·리소스 재활용 불가 문제가 있었음.</p>
         <p><strong>목표</strong> — 기존 클러스터는 기존 PK 전략 유지, 신규 클러스터 이관 시 마이그레이션 PK 규칙 적용, 신규 클러스터에는 Snowflake 채번을 쓰기 위해 클러스터별 PK Generator 개발·적용.</p>
-        <p><strong>수행</strong> — 채번 전략 설계, 테스트서버 구현 및 다우메신저·그룹웨어 등 전체 서비스 전수 테스트 완료. 당시 운영 배포는 HOLD(현 다우오피스 미적용, 25년 하반기 차세대 다우오피스 적용 예정으로 계획 변경, 개발 시점 24년 5월). 25년 상반기 차세대 다우오피스 개발팀에 설계문서·PR·리뷰 기록·WBS 등 인수인계 완료.</p>
+        <p><strong>수행</strong> — 채번 전략 설계, 테스트서버 구현 및 다우메신저·그룹웨어 등 전체 서비스 전수 테스트 완료.</p>
+        <p>당시 운영 배포는 HOLD(현 다우오피스 미적용, 25년 하반기 차세대 다우오피스 적용 예정으로 계획 변경, 개발 시점 24년 5월). 25년 상반기 차세대 다우오피스 개발팀에 설계문서·PR·리뷰 기록·WBS 등 인수인계 완료.</p>
         <p class="project-meta" style="margin-top:12px;"><span>협업: DBA, 메일 엔지니어, QA 엔지니어, 백엔드 개발자 다수</span><span>기술 스택: SpringBoot, Hibernate, JPA, Java, Bitbucket(Git), Jira</span></p>
       </div>
 
