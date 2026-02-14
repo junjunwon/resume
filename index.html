@@ -670,55 +670,7 @@
       <p class="cert-item">Upper-Intermediate Certificate in English from Oxford International Language School in the UK</p>
     </section>
 
-    <!-- 기술적 성과 요약 -->
-    <section class="sec highlights">
-      <h2 class="sec-title">기술적 성과 요약</h2>
-      <p>엑셀 발주 일괄등록 PHP 배치를 Spring Batch로 전환 → 처리 시간 <span class="highlight">93.75% 감소(12분→45초)</span>, <span class="highlight">OOM 해결</span></p>
-      <p>Strategy 패턴 기반 피킹통합 확장·주문 단위 출고 작업 신설, 출고지시 자동화 배치 구현 및 <span class="highlight">JUnit 정합성 검증</span></p>
-    </section>
-
-    <!-- 주요 프로젝트 -->
-    <section class="sec">
-      <h2 class="sec-title">주요 프로젝트</h2>
-
-      <div class="project">
-        <h3 class="project-title">엑셀 발주 등록 배치 시스템 전환 (PHP → Spring Batch)</h3>
-        <p class="project-meta">
-          <span>백엔드 개발자</span>
-          <span>Java, Spring Batch, MyBatis, MySQL, Apache POI</span>
-        </p>
-        <p class="project-summary"><span class="highlight">처리 시간 93.75% 감소(12분→45초)</span>, <span class="highlight">OOM 해결</span>, N+1 쿼리 <span class="highlight">99.997% 감소</span></p>
-        <ul>
-          <li>Spring Batch 아키텍처 설계·구현 (Job, Step, Chunk 기반 처리)</li>
-          <li><span class="highlight">Bulk 처리</span> 전환, BatchInsertExecutor로 배치 단위 메모리 해제 구현</li>
-          <li>5개 독립 프로세스 → <span class="highlight">1개 통합 Job</span>, 4단계 Step 모듈화, 파일 단위 독립 처리</li>
-          <li>중복 처리 방지(원자적 상태 변경), Fault Tolerance(최대 3회 재시도)</li>
-        </ul>
-        <div class="techs">
-          <span>Java</span><span>Spring Batch</span><span>MyBatis</span><span>MySQL</span><span>Apache POI</span>
-        </div>
-      </div>
-
-      <div class="project">
-        <h3 class="project-title">피킹고도화 프로젝트</h3>
-        <p class="project-meta">
-          <span><span class="highlight">1인 개발</span> (설계/개발/TC/오픈)</span>
-          <span>2개월</span>
-          <span>Java, Spring Boot, Vue 3, MySQL</span>
-        </p>
-        <p class="project-summary"><span class="highlight">Strategy 패턴</span> 기반 피킹통합 확장, 출고주문별조회 메뉴 신설(10여 개 기능), 출고지시 자동화 배치, <span class="highlight">JUnit 정합성 검증</span></p>
-        <ul>
-          <li>PickingGroupStrategy 인터페이스 기반 확장 가능한 피킹통합 아키텍처 설계</li>
-          <li>출고회차별·출고주문별 조회 완전 분리로 기존 기능 <span class="highlight">사이드 이펙트 제로</span></li>
-          <li>출고지시 자동화 배치(재고 할당/이동, 출고 상태 업데이트, 피킹 데이터 자동 생성)</li>
-          <li>JUnit + Mockito 단위 테스트로 재고/출고 상태 정합성 검증 (정상·예외·경계값)</li>
-        </ul>
-        <p class="project-meta">기획팀 TC <span class="highlight">1,500개</span> 전체 PASS</p>
-        <div class="techs">
-          <span>Java</span><span>Spring Boot</span><span>Spring Batch</span><span>Vue 3</span><span>MyBatis</span><span>MySQL</span>
-        </div>
-      </div>
-    </section>
+  
 
     <!-- 경력기술서 상세 -->
     <section class="sec career-sec">
@@ -737,7 +689,7 @@
           <li>안정성 강화 (중복 처리 방지, 트랜잭션 관리, Fault Tolerance 구현)</li>
           <li>메모리 프로파일링 기반 최적화 (IntelliJ Profiler 활용)</li>
         </ul>
-        <p class="sub-title">주요 기여</p>
+        <!-- <p class="sub-title">주요 기여</p> -->
         <p><strong>성능 개선</strong></p>
         <ul>
           <li>처리 시간 <span class="highlight">93.75% 감소: 12분 → 45초</span> (16배 속도 향상). 개별 조회·처리를 전부 <span class="highlight">Bulk 처리</span>로 전환, N+1 쿼리 해결: 30,000번 → 1번 (<span class="highlight">99.997% 감소</span>)</li>
