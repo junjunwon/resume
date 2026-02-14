@@ -620,7 +620,7 @@
         <p class="exp-meta"><span>(주)다우기술</span><span>2025.07 ~ 현재</span></p>
         <ul>
           <li>엑셀 발주 일괄등록 PHP 배치를 <span class="highlight">Spring Batch</span>로 전환 및 성능 개선, 처리 시간 <span class="highlight">93.75% 감소(12분→45초)</span> 및 <span class="highlight">OOM 해결</span></li>
-          <li><span class="highlight">Strategy 패턴</span> 기반 물류 피킹통합 기능 확장 및 주문 단위 출고 작업 신설, 출고지시 자동화 배치 구현(<span class="highlight">JUnit 검증</span>)</li>
+          <li>Strategy 패턴을 활용한 물류 피킹통합 기능 확장 및 <span class="highlight">주문 단위 출고 작업 신설, 출고지시 자동화 배치 구현</span></li>
           <li><span class="highlight">1,200개 물류사</span> 규모의 풀필먼트 WMS 시스템 기능 개선·운영을 통한 안정성 및 성능 최적화 기여</li>
         </ul>
         <p class="exp-skills"><strong>Skill Keyword:</strong> Vue 3, Java 21, SpringBoot, Spring Batch, Redis, MySQL, Cronicle, NCP</p>
@@ -634,8 +634,7 @@
           <li>백오피스와 4개 플랫폼서비스 기능 개선·운영을 통한 안정성 및 성능 최적화 기여</li>
           <li>그룹웨어 서비스 개설 상태를 <span class="highlight">실시간 파악</span> 가능한 알림 시스템 구축으로 운영 대응 효율 향상</li>
           <li>멤버십 구요금제 → 신요금제 <span class="highlight">자동 전환 프로세스</span> 설계·구현으로 고객 맞춤 요금제 제공</li>
-          <li>클러스터 간 <span class="highlight">8억 개 PK 중복 없이</span> 회사 이관을 위한 다우오피스 전체 클러스터 채번 전략 재수립</li>
-          <li><span class="highlight">OAuth 2.0</span> 기반 외부시스템용 표준 Open API 설계 및 구현</li>
+          <li>클러스터 간 8억 개 PK 중복 없이 회사 이관을 위한 다우오피스 전체 클러스터 채번 전략 재수립</li>
           <li>복수 클라이언트 확장을 고려한 <span class="highlight">SSO 연동 표준 서비스</span> 설계·개발 (다우오피스 내 LG 복지몰 오픈)</li>
         </ul>
         <p class="exp-skills"><strong>Skill Keyword:</strong> Vue 2, Java 21, SpringBoot, RabbitMQ, PostgreSQL, GCP</p>
@@ -732,10 +731,10 @@
         </ul>
         <p class="sub-title">주요 기여</p>
         <ul>
-          <li><span class="highlight">Strategy 인터페이스</span> 기반 확장 가능한 구조로 다양한 피킹 방식을 유연하게 추가</li>
+          <li>Strategy 인터페이스 기반 확장 가능한 구조로 <span class="highlight">다양한 피킹 방식</span>을 유연하게 추가</li>
           <li>회차 단위 출고 작업과 신설한 출고 단위 출고 작업을 완전 분리하여 기존 기능 <span class="highlight">사이드 이펙트 제로</span> 달성</li>
           <li>출고요청 → 출고지시 상태로 자동 변경하는 배치 Step 구현</li>
-          <li><span class="highlight">JUnit + Mockito</span> 단위 테스트로 재고 검증/할당/이동, 출고 상태·히스토리 정합성 검증 (정상·예외·경계값)</li>
+          <li>JUnit + Mockito 단위 테스트로 <span class="highlight">재고 검증/할당/이동, 출고 상태·히스토리 정합성 검증</span> (정상·예외·경계값)</li>
           <li>다양한 피킹 방식(송장/총량) 지원으로 고객사별 맞춤형 피킹 작업 가능</li>
           <li>기획팀 작성 TC <span class="highlight">1,500개</span> 전체 PASS로 품질 확보</li>
         </ul>
@@ -763,8 +762,8 @@
         </ul>
         <p class="sub-title">성과</p>
         <ul>
-          <li>월말 매출/매입 마감 소요 시간 <span class="highlight">1주일 → 1~2시간</span>으로 단축 (개발팀 담당 파트 기준)</li>
-          <li>월 수천만 원 규모로 발생하던 정산 데이터 정합성 이슈 <span class="highlight">완전 해소</span></li>
+          <li><span class="highlight">월말 매출/매입 마감 소요 시간 1주일 → 1~2시간</span>으로 단축 (개발팀 담당 파트 기준)</li>
+          <li>월 수천만 원 규모로 발생하던 정산 데이터 정합성 이슈 완전 해소</li>
           <li>엑셀 수작업 검증·DB 직접 수정 제거로 업무 안정성 및 신뢰도 향상</li>
         </ul>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 플랫폼기획팀, 정산팀</span><span>기술 스택: SpringBoot, Hibernate, JPA, Java, Bitbucket(Git), Postgresql, Linux, Jira, Vue.js</span></p>
@@ -863,24 +862,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">8. 외부 시스템을 위한 OAuth 2.0 기반의 표준 Open API 설계와 구현</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 외부 API 연동 서비스, Back Office, 파일 관리시스템</span></p>
-        <p class="sub-title">책임</p>
-        <ul>
-          <li>외부 시스템용 Open API 인증 및 요청방식 설계</li>
-          <li>외부 시스템용 Client Credentials Grant 발급 API 개발 및 토큰 검증</li>
-          <li>단순 조회는 API 방식, 내부 서비스에 데이터를 등록할 경우 RabbitMQ를 활용하여 서비스간 의존성 최소화</li>
-          <li>모든 시나리오에 대한 신뢰성 확보를 위해 테스트케이스 작성 및 JUnit 테스트 구현</li>
-        </ul>
-        <p class="sub-title">주요 기여</p>
-        <p>인증된 외부 시스템이 내부 데이터에 접근할 수 있는 <span class="highlight">OAuth 2.0 기반 Open API</span> 창구 구현 — 단순 조회는 API, 데이터 등록은 RabbitMQ로 서비스 간 의존성 최소화</p>
-        <p class="sub-title">상세 설명</p>
-        <p>Back Office에서 관리하지 않는 인증된 외부시스템이 내부 데이터에 접근할 수 있도록 Open API 구현</p>
-        <p class="project-meta" style="margin-top:12px;"><span>협업: 외부 시스템 개발자(2명), 다우오피스 개발자(1명)</span><span>기술 스택: SpringBoot, RabbitMQ, Hibernate, JPA, Java, Bitbucket(Git), Jira</span></p>
-      </div>
-
-      <div class="project">
-        <h3 class="project-title">9. 복수 클라이언트 확장을 고려한 SSO 연동 표준 서비스 설계 및 개발 (다우오피스 LG 복지몰 오픈)</h3>
+        <h3 class="project-title">8. 복수 클라이언트 확장을 고려한 SSO 연동 표준 서비스 설계 및 개발 (다우오피스 LG 복지몰 오픈)</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 다우오피스 외부 클라이언트 연동 서비스</span></p>
         <p class="sub-title">책임</p>
         <ul>
