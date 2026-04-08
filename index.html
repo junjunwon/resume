@@ -656,7 +656,7 @@
         <p class="exp-company">서버 백엔드 개발자 · 다우오피스 Platform Service</p>
         <p class="exp-meta"><span>(주)다우기술</span><span>2022.11 ~ 2025.07</span></p>
         <ul>
-          <li>백오피스 정산시스템 분리 및 연동 인터페이스 개발 → 연 <span class="highlight">300억</span> 규모 빌링-정산 데이터의 <span class="highlight">정합성 100%</span> 달성</li>
+          <li>백오피스 빌링시스템 내 정산 코드 분리 및 신정산시스템 연동 인터페이스 개발 → 연 <span class="highlight">300억</span> 규모 빌링-정산 데이터 <span class="highlight">정합성 100%</span> 달성</li>
           <li>백오피스와 4개 플랫폼서비스 기능 개선·운영을 통한 안정성 및 성능 최적화 기여</li>
           <li>그룹웨어 서비스 개설 상태를 <span class="highlight">실시간 파악</span> 가능한 알림 시스템 구축으로 운영 대응 효율 향상</li>
           <li>멤버십 구요금제 → 신요금제 <span class="highlight">자동 전환 프로세스</span> 설계·구현으로 고객 맞춤 요금제 제공</li>
@@ -674,8 +674,7 @@
           <li>신규 VDI 어드민시스템 기술스택 제안 및 구현</li>
           <li>관리자 메뉴 동기화~권한 검증까지 백엔드 권한관리 플로우 설계·구현으로 <span class="highlight">시스템 안정성·보안 강화</span></li>
           <li>Active Directory 연동 사용자 관리 구현 및 포털 <span class="highlight">원클릭 관리</span> 기능 개발로 운영 효율 향상</li>
-          <li>Citrix SDK 적용으로 동일 스펙 VM을 빠르게 생성하는 <span class="highlight">템플릿 서비스·API</span> 개발</li>
-          <li>Java 기반 <span class="highlight">Saga 패턴</span> 적용으로 VM 템플릿 생성 서비스 단계별 재시도 전략 수립·구현</li>
+          <li>Citrix SDK 기반 동일 스펙 VM <span class="highlight">템플릿 서비스·API</span> 개발 및 템플릿 생성 단계별 재시도·전체 롤백 전략 구현</li>
           <li>Citrix × Spring 기반 VDI 사용자·어드민 솔루션 개발 및 트러블슈팅 (이베이코리아, 지역난방공사 등 다수 기업 담당)</li>
         </ul>
         <p class="exp-skills"><strong>Skill Keyword:</strong> Vue 2, Java 21, SpringBoot, RabbitMQ, MsSQL, ExtJS</p>
@@ -719,7 +718,7 @@
         <p><strong>성능 개선</strong></p>
         <ul>
           <li>처리 시간 <span class="highlight">93.75% 감소: 12분 → 45초</span> (16배 속도 향상). 개별 조회·처리를 전부 <span class="highlight">Bulk 처리</span>로 전환, N+1 쿼리 해결: 15,000번 → 1번 (<span class="highlight">99.997% 감소</span>)</li>
-          <li>PHP 및 Spring Batch 초기 버전에서 발생하던 <span class="highlight">OOM 해결</span> — BatchInsertExecutor로 배치 단위 메모리 해제 구현, Peak 메모리 <span class="highlight">37.5% 감소</span> (400MB+ → 250MB)</li>
+          <li>PHP 및 Spring Batch 초기 버전에서 발생하던 <span class="highlight">OOM 해결</span> — BatchInsertExecutor로 배치 단위 메모리 해제 구현, 6만건 기준 Peak 메모리 <span class="highlight">60~75% 감소</span> (1GB+ → 250~400MB)</li>
         </ul>
         <p><strong>아키텍처 개선</strong></p>
         <ul>
@@ -736,7 +735,7 @@
           <tbody>
             <tr><td>처리 시간 (15,000 row)</td><td>약 12분</td><td><span class="highlight">45초 (93.75% 감소)</span></td></tr>
             <tr><td>판매상품 조회 쿼리</td><td>15,000번</td><td><span class="highlight">1번 (99.997% 감소)</span></td></tr>
-            <tr><td>Peak 메모리</td><td>400MB+ (OOM 발생)</td><td><span class="highlight">약 250MB (OOM 해결)</span></td></tr>
+            <tr><td>Peak 메모리 (60,000 row)</td><td>1GB+ (OOM 발생)</td><td><span class="highlight">250~400MB (60~75% 감소, OOM 해결)</span></td></tr>
           </tbody>
         </table>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 커머스서비스기획팀, 커머스운영팀</span><span>기술 스택: Spring Batch, SpringBoot, MyBatis, Java, Bitbucket(Git), MySQL, NCP</span></p>
@@ -772,8 +771,8 @@
         <h3 class="project-title">3. 정산 시스템 연동 안정화를 통해 데이터 정합성 100% 확보 및 회계 리스크 제거</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice 빌링 시스템 / 신정산 시스템</span><span>기여도: <span class="highlight">80%</span></span></p>
         <p class="sub-title">서비스 설명</p>
-        <p>연간 약 <span class="highlight">300억</span> 규모의 빌링-정산 데이터를 관리하는 그룹웨어 백오피스에서, 빌링/정산 통합 구조를 <span class="highlight">분리 구조</span>로 전환하는 프로젝트를 진행했습니다.</p>
-        <p>연동 오류·데이터 불일치·정산 마감 지연을 시스템 분리 및 연동 재설계로 해결하여 2025년 6월 정산 시스템 안정 오픈을 완료했고, <span class="highlight">정산 데이터 정합성 100%</span>를 확보했습니다.</p>
+        <p>연간 약 <span class="highlight">300억</span> 규모의 빌링-정산 데이터를 관리하는 그룹웨어 백오피스에서, 빌링시스템 내 정산 코드를 분리하고 <span class="highlight">신정산시스템 연동 인터페이스</span>를 재설계·구현하는 프로젝트를 진행했습니다.</p>
+        <p>연동 오류·데이터 불일치·정산 마감 지연을 빌링 시스템 분리 및 연동 구조 개선으로 해결하여 2025년 6월 정산 시스템 안정 오픈을 지원했고, <span class="highlight">정산 데이터 정합성 100%</span>를 확보했습니다.</p>
         <p class="sub-title">문제</p>
         <ul>
           <li>월말 정산 마감 시, 빌링·정산 데이터 불일치를 엑셀 기반 수작업 검증으로 처리</li>
