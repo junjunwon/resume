@@ -715,6 +715,40 @@
       </div>
     </section>
 
+    <section class="sec career-sec">
+      <h2 class="sec-title">Selected Projects</h2>
+
+      <div class="project">
+        <h3 class="project-title">1. Carrier Hub — Delivery Tracking &amp; Event Pipeline</h3>
+        <p class="project-meta"><span>DAOU Technology</span><span>Apr 2026 – Sep 2026</span><span>Spring Batch · Kafka · MySQL</span></p>
+        <ul>
+          <li><strong>Problem</strong> — The 9 couriers each had different APIs, auth methods, and status codes, and the WMS's synchronous processing caused duplicate shipments and compensation costs.</li>
+          <li><strong>What I did</strong> — Built Spring Batch pipelines with adapters for all 9 couriers and mapped their statuses into 8 standard states (106 mappings). Published changes through Transactional Outbox → Kafka → webhooks, with 4 layers of idempotency. Proposed Kafka and sized a 6-node KRaft cluster from traffic estimates (160K events/day, 100 msg/s peak).</li>
+          <li><strong>Result</strong> — Events cannot be lost by design, and webhooks fire once even when jobs are re-run. Adding a new courier takes changes in only 2 places.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3 class="project-title">2. Bulk Order Import — PHP to Spring Batch</h3>
+        <p class="project-meta"><span>DAOU Technology</span><span>Sabangnet WMS</span><span>Spring Batch · MyBatis · MySQL</span></p>
+        <ul>
+          <li><strong>Problem</strong> — Importing a 15,000-row order file took 12 minutes or crashed with OOM, and the first Spring Batch rewrite had the same problem.</li>
+          <li><strong>What I did</strong> — Profiled the job and replaced per-row lookups with bulk queries (15,000 queries → 1). Released memory per chunk, chose MyBatis SIMPLE or BATCH executors per step, and merged 5 separate processes into a single 4-step job.</li>
+          <li><strong>Result</strong> — Processing time went from <span class="highlight">12 min to 45 s (−93.75%)</span>, and peak memory from 1 GB+ to 250–400 MB, which eliminated the OOM errors.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3 class="project-title">3. Billing–Settlement Integration</h3>
+        <p class="project-meta"><span>DAOU Technology</span><span>DAOU Office Back Office</span><span>Spring Boot · JPA · PostgreSQL</span></p>
+        <ul>
+          <li><strong>Problem</strong> — Across ₩30B+ in annual billing, mismatches were checked by hand in Excel and fixed directly in the database, and month-end closing took more than a week.</li>
+          <li><strong>What I did</strong> — Separated settlement logic from the billing system and redesigned the integration as history logging plus batch sync. Added history-based verification, manual re-sync, and monitoring per contract, payment, and refund.</li>
+          <li><strong>Result</strong> — Reached <span class="highlight">100% data consistency</span> and cut month-end closing from about a week to 1–2 hours for engineering-owned tasks, with no more manual checks or direct DB edits.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="sec edu-sec">
       <h2 class="sec-title">Education</h2>
       <p class="edu-item"><strong>Eulji University</strong> — B.S. in Medical IT Marketing (computer science–based) · GPA 3.96/4.5 &nbsp; 2012 – 2019</p>
