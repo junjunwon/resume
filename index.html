@@ -748,17 +748,15 @@
         <p class="sub-title">배경</p>
         <p>외부 대행사(굿스플로)를 거치던 택배접수·배송추적을 사방넷이 <span class="highlight">9개 택배사(CJ·한진·롯데·로젠·우체국·일양·카카오T·딜리박스·딜리래빗)와 직접 연동</span>할 수 있도록 허브를 새로 구축했습니다. 택배사마다 API·인증·상태 코드가 달랐고, 기존 WMS는 <span class="highlight">동기식 처리 구조로 인한 중복 출고·보상 이슈</span>가 있어, 이벤트를 정확히 추적·재처리하는 구조가 핵심 과제였습니다.</p>
         <div class="arch-flow">
-          <div class="an"><b>Gateway</b><small>인증 · 레이트리밋 · LB</small></div>
-          <div class="ar">→</div>
           <div class="an"><b>Batch 수집</b><small>택배사 어댑터 9종</small></div>
           <div class="ar">동일 Tx →</div>
           <div class="an"><b>DB + Outbox</b><small>UNIQUE 제약 = 멱등</small></div>
           <div class="ar">→</div>
           <div class="an"><b>Kafka</b><small>key=송장 ID · RF 3</small></div>
           <div class="ar">→</div>
-          <div class="an"><b>웹훅 발송</b><small>HMAC 서명 · 1회 보장</small></div>
+          <div class="an"><b>hub-api 웹훅 발송</b><small>HMAC 서명 · 1회 보장</small></div>
         </div>
-        <p class="arch-note">전 구간을 trace_id로 연결해 Grafana(Prometheus·Loki·Tempo) 한 화면에서 추적</p>
+        <p class="arch-note">배송추적·반송장 배치 흐름 · Gateway는 외부 API 호출(hub-api) 전용으로 배치와 분리 · 전 구간 trace_id로 Grafana에서 추적</p>
 
         <p class="sub-title">주요 기여</p>
         <p><strong>① 배송추적 · 반송장 배치 파이프라인 설계·구현 (Spring Batch)</strong></p>
