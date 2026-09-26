@@ -674,7 +674,7 @@
         <p class="exp-desc">굿스플로를 거치던 택배접수를 사방넷이 <strong>9개 택배사와 직접 연동</strong>하기 위한 서비스를 신규 구축했습니다.</p>
         <ul>
           <li><span class="highlight">API Gateway 설계·구현</span> — 2트랙 인증(Basic·JWT)과 Redis Lua 기반 3-tier 레이트리밋을 엣지로 일원화, GW의 DB 의존·event loop 블로킹 제거</li>
-          <li>중복 출고 보상 이슈를 근거로 <span class="highlight">Redis Streams → Kafka 전환 제안</span>, 6노드 Isolated 클러스터·토픽 규격·Outbox 표준 설계</li>
+          <li>WMS의 동기식 처리 구조로 인한 중복 출고·보상 이슈를 보완하기 위해 <span class="highlight">Kafka 도입 제안</span>, 6노드 Isolated 클러스터·토픽 규격·Outbox 표준 설계</li>
           <li><span class="highlight">택배사 어댑터 9종</span>과 배송추적·반송장 파이프라인 구현 — Outbox·4계층 멱등성으로 <span class="highlight">이벤트 유실 차단·웹훅 1회 발송 보장</span></li>
           <li>Pinpoint → <span class="highlight">Grafana LGTM 모니터링 전환</span> — trace_id 기반 트레이스↔로그 연결, Kafka·Redis 포함 알림 룰 17종 구축</li>
           <li>역할별 에이전트 14개·검증 게이트 9종으로 구성한 <span class="highlight">AI 개발 파이프라인</span>을 팀 템플릿으로 표준화</li>
@@ -746,7 +746,7 @@
         <h3 class="project-title">1. 커머스 택배허브 신규 구축 — 9개 택배사 연동을 단일 API로 제공</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>기간: 2026.04 ~ 2026.09</span><span>인원: 택배허브 개발 3명(본인 포함) · 사방넷 개발 2명 · 기획 3명</span><span>역할: Gateway·Kafka·배송추적·관측성 설계·구현</span></p>
         <p class="sub-title">배경</p>
-        <p>외부 대행사(굿스플로)를 거치던 택배접수·배송추적을 사방넷이 <span class="highlight">9개 택배사(CJ·한진·롯데·로젠·우체국·일양·카카오T·딜리박스·딜리래빗)와 직접 연동</span>할 수 있도록 허브를 새로 구축했습니다. 택배사마다 API·인증·상태 코드가 달랐고, 기존 구조에서는 <span class="highlight">중복 출고 보상 이슈가 반복</span>돼 이벤트를 정확히 추적·재처리하는 구조가 핵심 과제였습니다.</p>
+        <p>외부 대행사(굿스플로)를 거치던 택배접수·배송추적을 사방넷이 <span class="highlight">9개 택배사(CJ·한진·롯데·로젠·우체국·일양·카카오T·딜리박스·딜리래빗)와 직접 연동</span>할 수 있도록 허브를 새로 구축했습니다. 택배사마다 API·인증·상태 코드가 달랐고, 기존 WMS는 <span class="highlight">동기식 처리 구조로 인한 중복 출고·보상 이슈</span>가 있어, 이벤트를 정확히 추적·재처리하는 구조가 핵심 과제였습니다.</p>
         <div class="arch-flow">
           <div class="an"><b>Gateway</b><small>인증 · 레이트리밋 · LB</small></div>
           <div class="ar">→</div>
@@ -769,7 +769,7 @@
         </ul>
         <p><strong>② Kafka 도입 제안·이벤트 아키텍처 설계</strong></p>
         <ul>
-          <li>중복 출고 보상 이슈의 원인을 <span class="highlight">이벤트 추적·재처리 한계</span>로 보고, 메모리 기반·DB 재조회 재처리인 Redis Streams 대신 <span class="highlight">디스크 영속·로그 재읽기가 가능한 Kafka 전환을 제안</span></li>
+          <li>WMS의 동기식 처리 구조로 인한 중복 출고·보상 이슈를 보완하기 위해, <span class="highlight">디스크 영속·로그 재읽기로 이벤트 추적·재처리가 가능한 Kafka 도입을 제안</span></li>
           <li>트래픽 산정(일 16만 건·피크 100 msg/s)으로 서버 스펙·디스크를 산출하고, 초기 3대 Combined 안은 Confluent 운영 미지원을 확인해 폐기 → <span class="highlight">브로커 3 + 컨트롤러 3 Isolated 구성</span>으로 설계</li>
           <li>토픽 규격(파티션 10 / RF 3 / min.isr 2)·파티션 키(송장 ID)·Outbox·DLQ·메시지 계약을 <span class="highlight">팀 공용 표준</span>으로 정리</li>
         </ul>
