@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junho Won | Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Gothic A1', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 32px 64px;
+    }
+
+    /* 상단: 사진 + 이름 + 직무 + 연락처 */
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 56px;
+      margin-bottom: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .top-text { order: 1; }
+
+    .photo {
+      order: 2;
+      flex-shrink: 0;
+      width: 220px;
+      height: 220px;
+      min-width: 220px;
+      min-height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .photo-placeholder {
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .top-text h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .top-text .role {
+      font-size: 15px;
+      color: #555;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .top-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px 24px;
+    }
+
+    .top-links a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.2s;
+    }
+
+    .top-links a:hover { opacity: 0.7; }
+
+    .top-links .link-icon {
+      display: block;
+      width: 28px;
+      height: 28px;
+    }
+
+    .intro {
+      font-size: 15px;
+      color: #333;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    /* 경력 요약 */
+    .exp-overview { margin-bottom: 56px; }
+    .exp-item {
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #eee;
+    }
+    .exp-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .exp-company { font-size: 17px; font-weight: 700; margin-bottom: 2px; }
+    .exp-meta { font-size: 13px; color: #666; margin-bottom: 12px; }
+    .exp-meta span + span::before { content: " · "; color: #ccc; }
+    .exp-item ul { padding-left: 20px; margin-bottom: 10px; font-size: 14px; color: #444; }
+    .exp-item li { margin-bottom: 6px; }
+    .exp-desc { font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.75; }
+    .exp-desc strong { color: #333; font-weight: 600; }
+    .exp-skills { font-size: 12px; color: #666; margin-top: 8px; }
+    .exp-skills strong { color: #333; }
+
+    /* 학력·자격 */
+    .edu-sec, .cert-sec { margin-bottom: 40px; }
+    .edu-item, .cert-item { margin-bottom: 12px; font-size: 14px; color: #444; }
+    .edu-item strong, .cert-item strong { color: #1a1a1a; }
+
+    /* 섹션: 제목만, 박스 없음 */
+    .sec {
+      margin-bottom: 56px;
+    }
+
+    .sec-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #e07a5f;
+    }
+
+    /* 기술적 성과: 문단만 */
+    .highlights p {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 14px;
+      color: #333;
+    }
+
+    .highlights p:last-child { margin-bottom: 0; }
+
+    /* 프로젝트 블록: 박스 없이 제목·메타·문단·리스트 */
+    .project {
+      margin-bottom: 36px;
+    }
+
+    .project:last-child { margin-bottom: 0; }
+
+    .project-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #1a1a1a;
+    }
+
+    .project-meta {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .project-meta span + span::before { content: " · "; color: #ccc; }
+
+    .project-summary {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .project ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .project li { margin-bottom: 6px; }
+
+    .techs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #666;
+    }
+
+    .techs span { font-weight: 500; }
+
+    /* 경력기술서 상세 — 여백·구분선·타이포만 */
+    .career-sec { margin-top: 56px; padding-top: 0; }
+    .career-sec .sec-title { border-bottom: none; padding-bottom: 0; }
+
+    .career-sec .project {
+      margin-bottom: 0;
+      padding-top: 48px;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    .career-sec .project:first-child { padding-top: 0; border-top: none; }
+
+    .career-sec .project-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+      letter-spacing: -0.01em;
+    }
+
+    .career-sec .project-meta {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .career-sec .project-meta span {
+      display: inline-block;
+    }
+
+    .career-sec .project-meta span + span::before {
+      content: "|";
+      color: #ccc;
+      margin-right: 12px;
+      margin-left: -4px;
+    }
+
+    .career-sec .sub-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 10px;
+      margin-top: 28px;
+    }
+
+    .career-sec .sub-title:first-of-type { margin-top: 0; }
+
+    .career-sec p, .career-sec li {
+      font-size: 14px;
+      font-weight: 400;
+      color: #444;
+      margin-bottom: 8px;
+      line-height: 1.9;
+    }
+
+    /* 서비스 설명 부분 가독성 개선 */
+    .career-sec .sub-title + p {
+      margin-bottom: 12px;
+      line-height: 2.0;
+    }
+
+    .career-sec .sub-title + p + p {
+      margin-top: 8px;
+      margin-bottom: 12px;
+      line-height: 2.0;
+    }
+
+    .career-sec ul { padding-left: 22px; margin-bottom: 16px; }
+
+    .career-sec ul ul { margin-bottom: 10px; margin-top: 6px; }
+
+    .career-sec li { margin-bottom: 8px; }
+
+    .career-sec li strong { font-weight: 600; color: #333; }
+
+    /* 강조 하이라이트 — 수치·성과·핵심 키워드 */
+    .highlight {
+      background: linear-gradient(to bottom, transparent 55%, rgba(255, 212, 100, 0.45) 55%, rgba(255, 212, 100, 0.45) 92%, transparent 92%);
+      padding: 0 2px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .career-sec table { margin-top: 8px; margin-bottom: 16px; }
+
+    code {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.92em;
+      color: #333;
+    }
+
+    /* 간이 아키텍처 다이어그램 */
+    .arch-flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px; margin: 10px 0 4px; }
+    .arch-flow .an {
+      border: 1px solid #d5d5d5; border-radius: 6px; padding: 7px 10px;
+      font-size: 12px; line-height: 1.45; color: #333; background: #fafafa;
+      text-align: center; display: flex; flex-direction: column; justify-content: center; min-width: 90px;
+    }
+    .arch-flow .an b { font-size: 12px; color: #111; }
+    .arch-flow .an small { color: #777; font-size: 10.5px; }
+    .arch-flow .ar { align-self: center; color: #999; font-size: 11px; padding: 0 2px; white-space: nowrap; text-align: center; }
+    .arch-note { font-size: 11.5px; color: #888; margin: 2px 0 14px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      font-weight: 400;
+      margin: 12px 0;
+    }
+
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th { font-weight: 700; color: #333; }
+    td { font-weight: 400; }
+
+    @media (max-width: 600px) {
+      .top { flex-direction: column; text-align: center; gap: 24px; }
+      .top-links { justify-content: center; }
+      .photo { width: 180px; height: 180px; min-width: 180px; min-height: 180px; margin: 0 auto; }
+    }
+
+    @page {
+      size: A4;
+      margin: 20mm 25mm;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        background: #fff;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .intro {
+        font-size: 13px;
+        margin-bottom: 32px;
+        line-height: 1.65;
+      }
+
+      .sec {
+        margin-bottom: 44px;
+      }
+
+      .sec-title {
+        font-size: 19px;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e0e0e0;
+        color: #e07a5f;
+      }
+
+      .exp-item {
+        margin-bottom: 20px;
+        padding-bottom: 18px;
+      }
+
+      .exp-company {
+        font-size: 15px;
+      }
+
+      .exp-item ul, .exp-item li {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .exp-skills {
+        font-size: 11px;
+        margin-top: 6px;
+      }
+
+      .exp-desc {
+        font-size: 11.5px;
+        margin-bottom: 8px;
+        line-height: 1.6;
+      }
+
+      .project {
+        margin-bottom: 24px;
+      }
+
+      .project-title {
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+
+      .project-meta {
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      .project-summary {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      .project ul, .project li {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .techs {
+        font-size: 10px;
+        gap: 6px;
+      }
+
+      .career-sec {
+        margin-top: 40px;
+        padding-top: 0;
+      }
+
+      .career-sec .sec-title {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .career-sec .project {
+        padding-top: 32px;
+        margin-bottom: 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .career-sec .project:first-child {
+        padding-top: 0;
+        border-top: none;
+      }
+
+      .career-sec {
+        page-break-before: always;
+        break-before: page;
+      }
+
+      .career-sec .sec-title {
+        page-break-after: avoid;
+        break-after: avoid;
+        page-break-before: auto;
+        break-before: auto;
+        margin-bottom: 12px;
+        padding-bottom: 0;
+      }
+
+      .career-sec .sec-title + .project {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+      }
+
+      .career-sec .project:first-child {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        padding-top: 0;
+        margin-top: 0;
+      }
+
+      .career-sec .project:not(:first-child) {
+        page-break-before: always;
+        break-before: page;
+      }
+
+      .career-sec .project-title {
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .career-sec .project-meta {
+        font-size: 11px;
+        margin-bottom: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .career-sec .project-meta span + span::before {
+        content: "|";
+        color: #ccc;
+        margin-right: 10px;
+        margin-left: -3px;
+      }
+
+      .career-sec .sub-title {
+        font-size: 12px;
+        margin-top: 20px;
+        margin-bottom: 8px;
+      }
+
+      .career-sec p, .career-sec li {
+        font-size: 12px;
+        margin-bottom: 6px;
+        line-height: 1.8;
+      }
+
+      /* 서비스 설명 부분 가독성 개선 (인쇄용) */
+      .career-sec .sub-title + p {
+        margin-bottom: 10px;
+        line-height: 1.9;
+      }
+
+      .career-sec .sub-title + p + p {
+        margin-top: 6px;
+        margin-bottom: 10px;
+        line-height: 1.9;
+      }
+
+      .career-sec ul {
+        padding-left: 18px;
+        margin-bottom: 12px;
+      }
+
+      table {
+        font-size: 12px;
+        margin: 8px 0;
+      }
+
+      th, td {
+        padding: 6px 10px;
+      }
+
+      .edu-item, .cert-item {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      .highlights p {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .page {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .top {
+        border-bottom-color: #ddd;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        gap: 44px;
+        margin-bottom: 32px;
+        padding-bottom: 24px;
+      }
+
+      .photo {
+        width: 180px;
+        height: 180px;
+        min-width: 180px;
+        min-height: 180px;
+      }
+
+      .top-text h1 {
+        font-size: 22px;
+        margin-bottom: 2px;
+      }
+
+      .top-text .role {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .top-links {
+        gap: 10px 16px;
+      }
+
+      .top-links .link-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .sec-title {
+        page-break-after: avoid;
+        break-after: avoid;
+        page-break-before: auto;
+        break-before: auto;
+      }
+
+      .sec-title + * {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+
+
+      .highlight {
+        background: rgba(255, 236, 179, 0.6) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .photo img {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a[href^="http"]:after {
+        content: "";
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <div class="photo">
+        <img src="./profile.jpg" alt="Junho Won">
+      </div>
+      <div class="top-text">
+        <h1>Junho Won</h1>
+        <p class="role">Software Engineer</p>
+        <div class="top-links">
+          <a href="mailto:wnsgh1993@gmail.com" title="Email: wnsgh1993@gmail.com" aria-label="Email">
+            <img class="link-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email" width="28" height="28">
+          </a>
+          <a href="https://www.linkedin.com/in/junhowon" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+            <img class="link-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="28" height="28">
+          </a>
+          <a href="https://github.com/junjunwon" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+            <img class="link-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="28" height="28">
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <p class="intro">
+      Software engineer with <span class="highlight">6+ years</span> of backend experience in Java and Spring, focused on reliable data flows and event-driven systems.<br /><br />
+      I built billing–settlement integrations handling <span class="highlight">₩30B+ per year</span>, and currently work on a fulfillment WMS used by 1,200 logistics companies and a new carrier integration hub connecting <span class="highlight">9 courier companies</span>.
+      I delegate implementation drafts to AI agents and focus on problem definition, architecture decisions, and verification.
+    </p>
+
+    <section class="sec exp-overview">
+      <h2 class="sec-title">Experience</h2>
+
+      <div class="exp-item">
+        <p class="exp-company">Software Engineer · Commerce Carrier Hub</p>
+        <p class="exp-meta"><span>DAOU Technology, Fulfillment Development Team</span><span>Apr 2026 – Sep 2026</span></p>
+        <p class="exp-desc">A new hub that lets Sabangnet book shipments and track deliveries directly with <strong>9 courier companies</strong>, replacing a third-party intermediary. Team of 3 engineers.</p>
+        <ul>
+          <li>Built the delivery-tracking and return-waybill batch pipelines with <span class="highlight">adapters for all 9 couriers</span>, normalizing courier-specific statuses into 8 standard states</li>
+          <li>Guaranteed <span class="highlight">no lost events and exactly-once webhooks</span> using Transactional Outbox, Kafka, and 4 layers of idempotency</li>
+          <li>Proposed <span class="highlight">adopting Kafka</span> to address duplicate-shipment issues caused by the WMS's synchronous processing; designed a 6-node KRaft cluster (3 brokers + 3 controllers) and topic standards</li>
+          <li>Moved monitoring from Pinpoint to <span class="highlight">Grafana LGTM</span>, linking traces and logs by trace_id, with 17 alert rules covering Kafka and Redis</li>
+          <li>Designed and built the <span class="highlight">API Gateway</span>: dual-track auth (Basic / JWT) and a Redis Lua sliding-window rate limiter, with no blocking on the event loop</li>
+          <li>Standardized an <span class="highlight">AI-assisted development pipeline</span> (14 role-based agents, 9 automated quality gates) as a team template</li>
+        </ul>
+        <p class="exp-skills"><strong>Skills:</strong> Java 25, Spring Boot 4, Spring Cloud Gateway (WebFlux), Spring Batch, Kafka (KRaft), Redis Cluster, MySQL, OpenTelemetry, Grafana, Prometheus, Loki, Tempo</p>
+      </div>
+
+      <div class="exp-item">
+        <p class="exp-company">Software Engineer · Sabangnet Fulfillment WMS</p>
+        <p class="exp-meta"><span>DAOU Technology, Fulfillment Development Team</span><span>Jul 2025 – Present</span></p>
+        <p class="exp-desc">Maintaining and improving a fulfillment WMS used by <strong>1,200 logistics companies</strong>.</p>
+        <ul>
+          <li>Migrated a PHP bulk order-import job to Spring Batch, cutting processing time by <span class="highlight">93.75% (12 min → 45 s)</span> and eliminating OOM errors (peak memory −60–75%)</li>
+          <li>Extended picking consolidation with the Strategy pattern, and added order-level outbound tasks and an automated dispatch batch — 1,500 QA test cases passed</li>
+        </ul>
+        <p class="exp-skills"><strong>Skills:</strong> Java 21, Spring Boot, Spring Batch, MyBatis, Redis, MySQL, Vue 3, Pinpoint, NCP</p>
+      </div>
+
+      <div class="exp-item">
+        <p class="exp-company">Software Engineer · DAOU Office Platform Service</p>
+        <p class="exp-meta"><span>DAOU Technology</span><span>Nov 2022 – Jul 2025</span></p>
+        <ul>
+          <li>Redesigned the billing–settlement integration for <span class="highlight">₩30B+ in annual billing</span>, reaching <span class="highlight">100% data consistency</span> and cutting month-end closing from about a week to 1–2 hours (engineering-owned tasks)</li>
+          <li>Designed a plan-migration interface that moved <span class="highlight">3,000+ customers</span> to new pricing plans and reduced future migration effort from 1 man-month to 1 man-day</li>
+          <li>Designed a Snowflake-based distributed ID strategy so companies could move between 9 clusters (~800M IDs each) without key collisions</li>
+          <li>Built a reusable SSO integration service that onboards a new client in 2–3 days (launched the LG welfare mall)</li>
+          <li>Built an async notification system with RabbitMQ for provisioning across 6 systems, removing manual log analysis</li>
+        </ul>
+        <p class="exp-skills"><strong>Skills:</strong> Java 21, Spring Boot, JPA/Hibernate, RabbitMQ, PostgreSQL, Vue 2, GCP</p>
+      </div>
+
+      <div class="exp-item">
+        <p class="exp-company">Software Engineer · VDI Management Solution</p>
+        <p class="exp-meta"><span>Timegate</span><span>Apr 2020 – Nov 2022</span></p>
+        <ul>
+          <li>Proposed the tech stack for a new VDI admin system and designed its backend permission flow</li>
+          <li>Built VM template services and APIs on the Citrix SDK, with per-step retry and full rollback</li>
+          <li>Delivered and supported VDI solutions for enterprise customers, including eBay Korea and Korea District Heating Corp.</li>
+        </ul>
+        <p class="exp-skills"><strong>Skills:</strong> Java, Spring Boot, RabbitMQ, MSSQL, Vue 2, ExtJS</p>
+      </div>
+    </section>
+
+    <section class="sec edu-sec">
+      <h2 class="sec-title">Education</h2>
+      <p class="edu-item"><strong>Eulji University</strong> — B.S. in Medical IT Marketing (computer science–based) · GPA 3.96/4.5 &nbsp; 2012 – 2019</p>
+    </section>
+
+    <section class="sec cert-sec">
+      <h2 class="sec-title">Certifications</h2>
+      <p class="cert-item">Engineer Information Processing — HRD Korea</p>
+      <p class="cert-item">Upper-Intermediate Certificate in English — Oxford International Language School, UK</p>
+    </section>
+  </div>
+</body>
+</html>
