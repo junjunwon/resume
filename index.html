@@ -660,7 +660,7 @@
 
     <p class="intro">
       Java & Spring 기반의 <span class="highlight">7년차</span> 서버 백엔드 엔지니어 원준호입니다. <br />
-      다우오피스 플랫폼서비스팀에서 <span class="highlight">4개 서비스 연동·개발</span>과 대규모 데이터에 대한 <span class="highlight">정합성 확보</span>를 담당했습니다. 현재는 풀필먼트개발팀에서 사방넷 WMS <span class="highlight">운영·기능 개선과 성능 최적화</span>를 담당하며, 같은 팀에서 사방넷용 택배 허브 플랫폼의 <span class="highlight">API Gateway</span>와 <span class="highlight">9개 택배사 배송추적·이벤트 아키텍처</span> 설계를 진행하고 있습니다. 구현·테스트 초안·영향 범위 탐색은 <span class="highlight">AI 에이전트에 위임</span>하고, 저는 <span class="highlight">문제 정의·아키텍처 결정·산출물 검증</span>에 집중하는 개발 방식을 팀 표준으로 만들어가고 있으며, 설계의 선택·기각 근거를 ADR·스펙 문서로 남겨 팀의 기술적 성숙도에 기여하고 있습니다.
+      다우오피스 플랫폼서비스팀에서 <span class="highlight">4개 서비스 연동·개발</span>과 대규모 데이터에 대한 <span class="highlight">정합성 확보</span>를 담당했습니다. 현재는 풀필먼트개발팀에서 사방넷 WMS <span class="highlight">운영·기능 개선과 성능 최적화</span>를 담당하고, 9개 택배사 연동 허브를 신규 구축하며 <span class="highlight">API Gateway·Kafka 이벤트 아키텍처·배송추적 파이프라인·관측성</span>을 설계·구현했습니다. 구현·테스트 초안·영향 범위 탐색은 <span class="highlight">AI 에이전트에 위임</span>하고, 저는 <span class="highlight">문제 정의·아키텍처 결정·산출물 검증</span>에 집중하는 개발 방식을 팀 표준으로 만들어가고 있으며, 설계의 선택·기각 근거를 ADR·스펙 문서로 남겨 팀의 기술적 성숙도에 기여하고 있습니다.
     </p>
 
     <!-- 경력 요약 (Work Experience Overview) -->
@@ -670,17 +670,17 @@
       <div class="exp-item">
         <p class="exp-company">서버 백엔드 개발자 · 사방넷 풀필먼트 (WMS · 커머스 택배 허브)</p>
         <p class="exp-meta"><span>(주)다우기술</span><span>2025.07 ~ 현재</span></p>
-        <p class="exp-desc"><strong>1,200개 물류사</strong> 규모 사방넷 WMS의 운영·기능 개선을 담당하고, 같은 팀에서 외부 배송 연동 대행사(굿스플로)를 거치던 송장 발급·배송추적을 <strong>9개 택배사와 직접 연동</strong>하는 자체 택배 허브 플랫폼을 구축하고 있습니다 (사방넷·파트너사에 계약 단위 API 제공).</p>
+        <p class="exp-desc"><strong>1,200개 물류사</strong> 규모 사방넷 WMS의 운영·기능 개선을 담당하고, 같은 팀에서 외부 배송 연동 대행사(굿스플로)를 거치던 송장 발급·배송추적을 <strong>9개 택배사와 직접 연동</strong>하는 택배허브를 신규 구축했습니다 (사방넷·파트너사에 계약 단위 API 제공).</p>
         <ul>
-          <li>구현·테스트 초안·영향 범위 탐색을 AI에 위임하고 요구 분해·설계 결정·검증에 집중하는 <span class="highlight">에이전트 개발 파이프라인 구축</span> — 역할별 에이전트 14개와 기계 판정 게이트 9종으로 <span class="highlight">Test-First·빌드·보안 검증 미통과 시 진행 차단</span>. 아래 성과는 모두 이 방식 위에서 설계·구현·검증함</li>
-          <li><span class="highlight">API Gateway 설계·구현</span> — 서비스마다 흩어질 인증·트래픽 제어·장애 격리를 단일 진입점의 공통 정책으로 통합. 레이트리밋을 <span class="highlight">인증 주체 3-tier</span>로 재편하고 <span class="highlight">3단 타임아웃·라우트별 서킷브레이커</span>로 장애 전파 범위 축소</li>
-          <li><span class="highlight">9개 택배사</span>의 상이한 응답 포맷·인증 방식을 단일 배송상태 모델로 표준화하고, 대량 처리 택배사를 별도 단계로 격리해 <span class="highlight">한 택배사의 장애가 나머지 수집을 막지 않는</span> 배치 파이프라인 구축</li>
-          <li>배송상태 변경 이벤트 <span class="highlight">Kafka 아키텍처 설계</span> — Transactional Outbox로 <span class="highlight">이벤트 유실을 구조적으로 차단</span>하고, DB 제약을 발행 조건으로 삼아 잠금 없이 <span class="highlight">중복 발행 방지(effect-once)</span> 확보</li>
-          <li>팀 모니터링 도구(Pinpoint)의 한계를 보완하는 <span class="highlight">Grafana 기반 관측 체계(Prometheus·Tempo·Loki)</span> 설계·적용 — 메트릭·트레이스·로그를 <span class="highlight">trace_id 하나로 연결</span>, Kafka 6노드 계측·경보 규칙 신설</li>
+          <li><span class="highlight">API Gateway 설계·구현</span> — 2트랙 인증(Basic·JWT)과 Redis Lua 기반 3-tier 레이트리밋을 엣지로 일원화, GW의 DB 의존·event loop 블로킹 제거</li>
+          <li>중복 출고 보상 이슈를 근거로 <span class="highlight">Redis Streams → Kafka 전환 제안</span>, 6노드 Isolated 클러스터·토픽 규격·Outbox 표준 설계</li>
+          <li><span class="highlight">택배사 어댑터 9종</span>과 배송추적·반송장 파이프라인 구현 — Outbox·4계층 멱등성으로 <span class="highlight">이벤트 유실 차단·웹훅 1회 발송 보장</span></li>
+          <li>Pinpoint → <span class="highlight">Grafana LGTM 관측성 전환</span> — trace_id 기반 트레이스↔로그 연결, Kafka·Redis 포함 알림 룰 17종 구축</li>
+          <li>역할별 에이전트 14개·검증 게이트 9종으로 구성한 <span class="highlight">AI 개발 파이프라인</span>을 팀 템플릿으로 표준화</li>
           <li>WMS 엑셀 발주 일괄등록 PHP 배치를 <span class="highlight">Spring Batch</span>로 전환 및 성능 개선 — 처리 시간 <span class="highlight">93.75% 감소(12분→45초)</span> 및 <span class="highlight">OOM 해결</span></li>
           <li>Strategy 패턴 기반 물류 피킹통합 기능 확장 및 <span class="highlight">주문 단위 출고 작업 신설, 출고지시 자동화 배치 구현</span></li>
         </ul>
-        <p class="exp-skills"><strong>Skill Keyword:</strong> Java 25/21, SpringBoot 4, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka, Redis, Caffeine, MySQL 8, Resilience4j, Prometheus, Grafana, OpenTelemetry, Tempo, Loki, Vue 3, Cronicle, NCP, Claude Code</p>
+        <p class="exp-skills"><strong>Skill Keyword:</strong> Java 25/21, SpringBoot 4, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka(KRaft), Redis Cluster, MySQL, OpenTelemetry, Grafana, Prometheus, Loki, Tempo, Vue 3, Cronicle, NCP, Claude Code</p>
       </div>
 
       <div class="exp-item">
@@ -733,178 +733,91 @@
       <h2 class="sec-title">경력기술서 (상세)</h2>
 
       <div class="project">
-        <h3 class="project-title">1. 택배 허브 API Gateway 설계·구현 (인증·트래픽 제어 단일 진입점)</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 커머스 택배 허브</span><span>Backend / 인프라</span><span>기여도: <span class="highlight">100%</span></span></p>
-        <p class="sub-title">서비스 설명</p>
-        <p>외부 서비스(파트너사·사방넷)가 택배 허브에 접근하는 <span class="highlight">인증·트래픽 제어 단일 진입점</span>인 API Gateway를 Spring Cloud Gateway(WebFlux) 기반으로 설계·구현했습니다. 인증·레이트리밋·라우팅·관측 4개 관심사로 계층을 분리하고, JWT(RS256/JWKS)·계약 단위 자격증명 인증과 Redis Lua 스크립트 기반 슬라이딩 윈도우 레이트리미터를 자체 설계했습니다.</p>
-        <p class="sub-title">책임</p>
+        <h3 class="project-title">1. 커머스 택배허브 신규 구축 — 9개 택배사 연동을 단일 API로 제공</h3>
+        <p class="project-meta"><span>회사: 다우기술</span><span>기간: 2026.04 ~ 2026.09</span><span>인원: 백엔드 3명</span><span>역할: Gateway·Kafka·배송추적·관측성 설계·구현</span></p>
+        <p class="sub-title">배경</p>
+        <p>외부 대행사(굿스플로)를 거치던 송장 발급·배송추적을 <span class="highlight">9개 택배사(CJ·한진·롯데·로젠·우체국·일양·카카오T·딜리박스·딜리래빗)와 직접 연동</span>하는 허브를 새로 구축했습니다. 택배사마다 API·인증·상태 코드가 달랐고, 기존 구조에서는 <span class="highlight">중복 출고 보상 이슈가 반복</span>돼 이벤트를 정확히 추적·재처리하는 구조가 핵심 과제였습니다.</p>
+        <div class="arch-flow">
+          <div class="an"><b>Gateway</b><small>인증 · 레이트리밋 · LB</small></div>
+          <div class="ar">→</div>
+          <div class="an"><b>Batch 수집</b><small>택배사 어댑터 9종</small></div>
+          <div class="ar">동일 Tx →</div>
+          <div class="an"><b>DB + Outbox</b><small>UNIQUE 제약 = 멱등</small></div>
+          <div class="ar">→</div>
+          <div class="an"><b>Kafka</b><small>key=송장 ID · RF 3</small></div>
+          <div class="ar">→</div>
+          <div class="an"><b>웹훅 발송</b><small>HMAC 서명 · 1회 보장</small></div>
+        </div>
+        <p class="arch-note">전 구간을 trace_id로 연결해 Grafana(Prometheus·Loki·Tempo) 한 화면에서 추적</p>
+
+        <p class="sub-title">주요 기여</p>
+        <p><strong>① API Gateway 설계·구현</strong></p>
         <ul>
-          <li>게이트웨이 아키텍처 설계(auth / ratelimit / routing / observability 관심사 분리) 및 인증 체계 설계·구현(JWT + JWKS, 계약 단위 자격증명 위임 검증, 인증 결과 캐싱)</li>
-          <li>Redis 기반 분산 레이트리미터·tier 정책 수립, 장애 격리 정책 설계(타임아웃 계층, 라우트별 서킷브레이커, 클라이언트 사이드 LB)</li>
+          <li>서버 간 호출(Basic)과 셀러 브라우저 iframe(JWT) <span class="highlight">2트랙 인증</span>을 엣지 한 곳으로 통합. 자격증명 검증은 내부 API로 위임하고 비동기 캐시(stampede 방지)로 흡수해 <span class="highlight">GW의 DB·bcrypt 의존을 없애고 event loop 블로킹 0</span></li>
+          <li>Redis Lua 기반 <span class="highlight">Sliding Window 레이트리밋을 직접 구현</span>(계약·클라이언트·토큰발급 3 tier) — 계약 하나의 트래픽이 다른 계약에 영향을 주지 않도록 격리, Redis 지연 시 fail-open</li>
+          <li>재시도를 TCP 연결 실패로만 제한해 <span class="highlight">POST 중복(운송장 중복 발행) 차단</span>, XFF 신뢰 hop 기반 판정으로 IP 위조 차단(CVE-2026-47825 대응)</li>
         </ul>
+        <p><strong>② Kafka 도입 제안·이벤트 아키텍처 설계</strong></p>
+        <ul>
+          <li>중복 출고 보상 이슈의 원인을 <span class="highlight">이벤트 추적·재처리 한계</span>로 보고, 메모리 기반·DB 재조회 재처리인 Redis Streams 대신 <span class="highlight">디스크 영속·로그 재읽기가 가능한 Kafka 전환을 제안</span></li>
+          <li>트래픽 산정(일 16만 건·피크 100 msg/s)으로 서버 스펙·디스크를 산출하고, 초기 3대 Combined 안은 Confluent 운영 미지원을 확인해 폐기 → <span class="highlight">브로커 3 + 컨트롤러 3 Isolated 구성</span>으로 설계</li>
+          <li>토픽 규격(파티션 10 / RF 3 / min.isr 2)·파티션 키(송장 ID)·Outbox·DLQ·메시지 계약을 <span class="highlight">팀 공용 표준</span>으로 정리</li>
+        </ul>
+        <p><strong>③ 배송추적 · 반송장 파이프라인 설계·구현</strong></p>
+        <ul>
+          <li>택배사 <span class="highlight">어댑터 9종 전량 구현</span>, 상이한 상태 코드를 표준 8값(매핑 106건)으로 정규화 — <span class="highlight">신규 택배사 추가 시 수정 지점 2곳</span></li>
+          <li>Transactional Outbox → Kafka → 웹훅으로 이벤트 유실을 구조적으로 차단하고, <span class="highlight">4계층 멱등성</span>으로 재처리해도 웹훅은 1회만 발송</li>
+          <li>택배사가 사후에 채우는 반송장을 3가지 경로로 획득, 후보가 모호하면 갱신하지 않고 알림 — <span class="highlight">반송장 오귀속 차단</span></li>
+        </ul>
+        <p><strong>④ 관측성 전환 (Pinpoint → Grafana LGTM)</strong></p>
+        <ul>
+          <li>로그 확인에 서버 접속이 필요하고 트레이스·로그가 분산되던 Pinpoint의 한계를 보완 — <span class="highlight">trace_id로 트레이스↔로그 양방향 이동</span>, Kafka 브로커·consumer lag·Redis까지 한 화면에서 관측</li>
+          <li>Kafka ISR 축소·컨슈머 중단·5xx 비율 등 <span class="highlight">알림 룰 17종 → Slack</span>, 대시보드 7종 구축. 계측은 인프라운영팀이 대응 가능한 사내 표준(OTel 에이전트)으로 단일화</li>
+        </ul>
+
+        <p class="sub-title">문제 해결</p>
+        <table>
+          <thead>
+            <tr><th>문제</th><th>원인</th><th>해결</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>CJ 일부 건 영구 유실</td><td>수집 확정(confirm)이 원문 기준이라 drop된 건까지 확정</td><td>drop 결과를 confirm 제외 근거로 환류</td></tr>
+            <tr><td>배송이력 PK <span class="highlight">258만 급증</span></td><td>ON DUPLICATE KEY UPDATE가 중복 흡수 시에도 auto-increment 소각</td><td><code>WHERE NOT EXISTS</code> INSERT로 전환</td></tr>
+            <tr><td>운영 환경 403 오탐</td><td>LB + 프록시 2단 구성에서 XFF hop 불일치로 LB 사설 IP를 클라이언트로 판정</td><td>환경별 토폴로지 실측 후 hop 수 정정</td></tr>
+            <tr><td>한진 API 429 호출 제한</td><td>무간격 연속 호출</td><td>실측으로 특정 후 500ms 스로틀 도입</td></tr>
+            <tr><td>dev 로그 유실</td><td>OTel 에이전트·Spring starter 이중 계측</td><td>에이전트로 단일화</td></tr>
+          </tbody>
+        </table>
+
+        <p class="sub-title">성과</p>
+        <ul>
+          <li>택배사 9사 연동 허브의 <span class="highlight">인프라(Gateway·Kafka·관측성)와 핵심 데이터 흐름(배송추적·반송장)</span>을 설계·구현</li>
+          <li>이벤트 유실·중복을 코드 규칙이 아닌 <span class="highlight">트랜잭션 경계와 DB 제약으로 차단</span> — 이벤트를 로그에서 다시 읽어 재처리할 수 있는 구조 확보</li>
+          <li>Kafka 클러스터·토픽·Outbox·메시지 계약을 <span class="highlight">허브 비동기 연동 표준</span>으로 수립, 설계 근거는 ADR로 문서화</li>
+        </ul>
+        <p class="project-meta" style="margin-top:12px;"><span>협업: 백엔드 개발자 3명, 인프라운영팀</span><span>기술 스택: Spring Boot 4, Java 25, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka(Confluent 8.2, KRaft), Redis Cluster, MySQL, OpenTelemetry, Prometheus, Grafana, Loki, Tempo, NCP</span></p>
+      </div>
+
+      <div class="project">
+        <h3 class="project-title">2. 멀티 에이전트 개발 파이프라인 구축 및 팀 표준화</h3>
+        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 커머스 택배허브 (개발 프로세스)</span><span>개발 생산성 / 품질</span><span>기여도: <span class="highlight">100%</span></span></p>
+        <p class="sub-title">배경</p>
+        <p>AI 코딩 도구 도입 후 <span class="highlight">"빠르게 나오지만 믿을 수 없는 코드"</span>가 리스크가 됐습니다. 요구사항이 산출물에 남지 않고, 프롬프트로 적은 규칙은 지켜졌는지 확인할 방법이 없었습니다.</p>
         <p class="sub-title">주요 기여</p>
         <ul>
-          <li><strong>레이트리밋 기준을 인증 주체로 설계</strong> — 엔드포인트 성격(read/write) 기준안은 파트너사 한 곳의 트래픽이 다른 계약의 한도를 잠식할 수 있어 기각하고, <span class="highlight">계약 1,200 · 클라이언트 6,000 · 토큰발급 60 req/분</span> 3-tier로 분리 — 목적을 "쿼터 통제"가 아닌 <span class="highlight">어뷰징 차단·blast-radius 제한</span>으로 정의</li>
-          <li><strong>한도 우회 레이스 컨디션 차단</strong> — check-then-increment 방식은 동시 요청이 한도를 초과 통과할 수 있어, <span class="highlight">Redis 원자적 Lua 스크립트</span> 기반 슬라이딩 윈도우를 채택해 <span class="highlight">다중 인스턴스 환경에서도 한도 판정 일관성</span> 확보</li>
-          <li><strong>토큰 스코프 설계</strong> — 공유 bearer 토큰은 유출 시 전체 계약이 노출되므로 <span class="highlight">계약코드 스코핑 토큰</span> 구조를 채택, 유출 시 영향 범위를 <span class="highlight">단일 계약으로 한정</span></li>
-          <li><strong>인증 비용 제거 + fail-closed 보장</strong> — 요청마다 발생하던 자격증명 해시 검증(약 100ms)을 Caffeine <code>AsyncCache</code>로 흡수해 <span class="highlight">cache hit 시 인증 오버헤드를 5ms 목표 수준</span>으로 설계. 단일 <code>get(key, loader)</code> 호출로 동시 동일 키 요청의 중복 검증 폭주(stampede)를 차단하고, 예외 시 자동 eviction으로 <span class="highlight">검증 실패가 통과로 흐르지 않도록</span> 보장 (TTL 60s로 시크릿 폐기 반영 지연 상한 관리)</li>
-          <li><strong>장애 격리 3중 설계</strong> — <span class="highlight">Gateway 45s &gt; hub-api 30s &gt; 인증 5s</span> 3단 타임아웃 계층으로 캐스케이드를 차단하고, 라우트 성격별 서킷브레이커 <span class="highlight">3분류</span>(비즈니스·송장·인증)로 독립 window를 부여해 한 경로의 장애가 다른 경로로 번지지 않도록 blast-radius를 분리</li>
-          <li><strong>XFF 스푸핑 차단</strong> — 클라이언트 IP 신뢰 방식의 위조 취약점(CVE-2026-47825 계열)을 확인하고 <span class="highlight">신뢰 프록시 hop 수 기반</span> 판정으로 설계, 신뢰 전제가 성립하지 않는 환경은 기능을 비활성화하도록 환경별 보안 정책을 분리해 ADR로 문서화</li>
-        </ul>
-        <p class="sub-title">AI 협업 방식 · 검증</p>
-        <ul>
-          <li>구현·테스트 초안은 에이전트 파이프라인에 위임하고, 인증 스코프·fail-closed 기본값·타임아웃 계층 등 <span class="highlight">보안 기준을 먼저 정의해 에이전트와 검증 게이트가 참조하는 판정 기준으로 제공</span> — 생성 코드는 인증 실패 경로·레이트리밋 경계값을 고정한 <span class="highlight">테스트 228건(운영 코드 대비 1.7배 LOC)</span>을 통과해야만 반영, "정상 동작"이 아니라 <span class="highlight">실패 경로가 안전하게 실패하는지</span>를 회귀 기준으로 삼음</li>
+          <li>요구 정리 → 설계 → 작업 분해 → 구현 → 검증 → 보안 리뷰를 <span class="highlight">역할별 에이전트 14개</span>로 분리하고, 단계마다 검토 게이트를 둬 잘못된 산출물이 다음 단계로 넘어가지 않도록 차단</li>
+          <li>반복 위반된 규칙은 프롬프트가 아닌 <span class="highlight">결정론적 hook 9종</span>으로 격상 — Test-First·빌드·시크릿 노출 검증 미통과 시 진행 차단</li>
         </ul>
         <p class="sub-title">성과</p>
         <ul>
-          <li>흩어질 수 있었던 인증·트래픽·장애 격리 정책을 게이트웨이 <span class="highlight">단일 진입점</span>으로 수렴 — 신규 파트너사 추가 시 계약 등록만으로 인증·한도·라우팅이 동일 정책으로 적용</li>
-          <li>인증 성공/실패, 레이트리밋 허용/차단/fail-open 등 <span class="highlight">커스텀 메트릭 10종</span>을 설계해 Prometheus로 노출, 인증 실패율·차단율을 운영 지표로 상시 관측 가능화</li>
-          <li>설계부터 구현·검증까지 담당 — 인증 패키지 커밋 <span class="highlight">48/49건</span>, 레이트리밋 19/23건, 라우팅·관측 16/16건</li>
+          <li>다른 프로젝트에 그대로 복사 가능한 <span class="highlight">팀 템플릿</span>으로 정리, 저장소 설계 문서 101건 중 <span class="highlight">64건(63%)</span>을 파이프라인으로 산출</li>
+          <li>완료 작업 33건에 적용 — 22건(67%)이 정식 스펙까지 산출물을 남기고 완주</li>
         </ul>
-        <p class="project-meta" style="margin-top:12px;"><span>협업: 백엔드 개발자 3명, 파트너사(사방넷)</span><span>기술 스택: Spring Cloud Gateway(WebFlux), SpringBoot 4, Java 25, Redis(6-node cluster), Caffeine, Resilience4j, JWT/JWKS, JUnit</span></p>
+        <p class="project-meta" style="margin-top:12px;"><span>협업: 백엔드 개발자 3명</span><span>기술 스택: Claude Code(서브에이전트·Hook·슬래시 커맨드), Python, Git Hook</span></p>
       </div>
 
       <div class="project">
-        <h3 class="project-title">2. 9개 택배사 배송추적 파이프라인 설계·구현 — 확장성·장애 격리 중심</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 커머스 택배 허브 (배송추적 배치)</span><span>Backend / 스프링 배치</span><span>기여도: <span class="highlight">100%</span></span></p>
-        <p class="sub-title">서비스 설명</p>
-        <p>9개 택배사(CJ·롯데·한진·로젠·일양·카카오T·EPOST·딜리래빗·DBOX)마다 응답 포맷과 인증 방식이 달라 표준화가 필요했고, 더 근본적으로는 <span class="highlight">택배사가 늘어나도 배치 시간이 함께 늘어나지 않는 구조</span>가 필요했습니다.</p>
-        <p>배송상태를 수집·정제·발행하는 파이프라인 전체를 <span class="highlight">처음부터 설계·구현</span>했습니다. 어댑터 하나만 추가하면 택배사가 늘어나는 확장성과, 한 택배사의 장애가 나머지 8개로 번지지 않는 격리성을 설계의 기준으로 삼았습니다.</p>
-        <p class="sub-title">설계 기준</p>
-        <ul>
-          <li>택배사별 수집을 순차로 이어붙이면 택배사가 추가될 때마다 배치 소요 시간이 함께 늘어나므로, 처음부터 <span class="highlight">동시 실행 구조</span>를 전제로 설계</li>
-          <li>CJ는 건별 조회가 아니라 날짜 기준 대량 처리 방식이라, 처리 특성이 다른 워크로드를 같은 단계에 섞으면 나머지 택배사가 영향을 받음</li>
-          <li>택배사 API는 통제 밖 의존이므로, 실패를 "막는" 것이 아니라 <span class="highlight">실패해도 범위가 번지지 않게</span> 가두는 것을 목표로 설정</li>
-        </ul>
-        <p class="sub-title">주요 기여 — 확장성·격리 설계</p>
-        <ul>
-          <li>Spring Batch <span class="highlight">split flow + 전용 TaskExecutor</span>로 택배사별 수집 단계를 동시 실행 — 택배사가 추가돼도 <span class="highlight">배치 시간이 누적되지 않는 구조</span>. 스레드 풀을 택배사 수에 <span class="highlight">코드 레벨 1:1로 고정</span>해 설정 누락으로 조용히 순차 처리로 되돌아가는 사고를 차단하고, 상한은 DB 커넥션 풀(HikariCP) 예산으로 제한</li>
-          <li>처리 방식이 다른 CJ 대량 처리를 <span class="highlight">별도 단계로 격리(bulkhead)</span> — 건별 <code>REQUIRES_NEW</code> 커밋과 <span class="highlight">chunk(1) + skip</span> 정책(재시도 폭주 방지)으로 <span class="highlight">한 건·한 택배사의 실패가 나머지 수집으로 번지지 않도록</span> 격리</li>
-          <li>동시 실행 스레드로 넘어가도 로그 상관관계(MDC/trace_id)가 끊기지 않도록 컨텍스트 전파 데코레이터를 적용 — 동시성 도입이 장애 추적 능력을 희생하지 않도록 설계</li>
-          <li>정규화 계층에 멱등 제약(UNIQUE + 최신 상태만 반영)을 둬 이벤트 도착 순서·재실행에 의존하지 않는 결과를 보장</li>
-          <li>수집 결과의 이벤트 발행·정합성 설계(Transactional Outbox, 장애 도메인 분리)는 <span class="highlight">아래 3번(Kafka 이벤트 아키텍처)</span>에서 상세 기술</li>
-        </ul>
-        <p class="sub-title">검증 — 택배사 9종 Mock 서버 자체 구축</p>
-        <ul>
-          <li>자격증명 발급 대기·택배사 dev 서버 불안정 같은 <span class="highlight">외부 의존이 개발·검증 속도를 좌우하지 않도록</span>, 9개사의 wire 프로토콜(인증 방식·채번 규칙·응답 코드 체계·XML/JSON 포맷)을 재현하는 Mock 서버를 구축 — <span class="highlight">Python 모듈 57개 / 자체 테스트 255건</span>(100% 단독). 정상 경로뿐 아니라 <span class="highlight">실패 경로·에러 코드까지 로컬에서 반복 검증</span> 가능</li>
-          <li>명세 채록·Mock 코드 생성은 AI에 위임하되 <span class="highlight">Mock ↔ 실 API 응답 parity를 감사 리포트로 2회 직접 검증</span>해 드리프트를 제거 — 개발서버 실연동 전에 어댑터 신뢰도를 확보하는 전제 인프라</li>
-        </ul>
-        <p class="sub-title">성과</p>
-        <ul>
-          <li><span class="highlight">운영 코드 190개 클래스 / 10,311 LOC · 테스트 112개 파일 / 487건</span> — 설계부터 구현·검증까지 전담</li>
-          <li>9개 택배사를 <span class="highlight">단일 인터페이스로 통합</span> — 어댑터·파서 추가만으로 신규 택배사 확장 가능, 반품 배송 추적·반송장 획득 등 하위 시나리오까지 동일 원칙으로 확장</li>
-        </ul>
-        <p class="project-meta" style="margin-top:12px;"><span>협업: 백엔드 개발자 3명, 택배사 연동 담당</span><span>기술 스택: Spring Batch, SpringBoot 4, Java 25, Kafka, MySQL 8, Redis, JUnit, Mockito</span></p>
-      </div>
-
-      <div class="project">
-        <h3 class="project-title">3. Kafka 도입 제안 및 이벤트 아키텍처·팀 표준 설계</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 커머스 택배 허브 (이벤트 플랫폼)</span><span>아키텍처 / 인프라</span><span>기여도: <span class="highlight">100%</span></span></p>
-        <p class="sub-title">서비스 설명</p>
-        <p>택배 허브의 핵심 운영 과제는 <span class="highlight">이벤트의 정확한 추적·재처리</span>입니다 — 송장(택배)접수와 배송추적에서 이벤트가 유실·중복되면 곧 중복 출고 보상 같은 비용으로 이어집니다. Kafka 도입을 제안하고 클러스터 토폴로지부터 토픽 계약·Outbox 발행 패턴까지 <span class="highlight">팀이 공용으로 쓰는 Kafka 표준</span>을 설계·문서화했으며, 배송추적 도메인에 직접 구현해 표준의 레퍼런스로 삼았습니다.</p>
-        <div class="arch-flow">
-          <div class="an"><b>Spring Batch</b><small>수집 + 상태 변경 판단</small></div>
-          <div class="ar">동일 Tx →</div>
-          <div class="an"><b>DB 반영 + Outbox</b><small>UNIQUE 제약 = 발행 게이트</small></div>
-          <div class="ar">after-commit<br />비동기 발행 →</div>
-          <div class="an"><b>Kafka events 토픽</b><small>key=송장 ID · acks=all</small></div>
-          <div class="ar">→</div>
-          <div class="an"><b>Consumer (hub-api)</b><small>실패 시 DLQ 격리</small></div>
-          <div class="ar">→</div>
-          <div class="an"><b>파트너 웹훅</b><small>이벤트 ID 중복 제거</small></div>
-        </div>
-        <p class="arch-note">상태 변경 판단은 배치 안에서 종료 — 확정된 변경만 단일 토픽으로 1회 발행 (Transactional Outbox)</p>
-        <p class="sub-title">설계 판단</p>
-        <ul>
-          <li><strong>기술 선정 — Redis Streams 대비 Kafka</strong> — 메모리 기반(유실 위험)·외부 DB 재조회 재처리 방식인 Redis Streams 대비, <span class="highlight">디스크 영속 로그·ISR 합의·로그 재읽기 재처리</span>를 근거로 Kafka를 채택하고, 운영 부담(토픽·파티션 설계, 장애 운영 룰, 학습 곡선)을 감수 항목으로 명시해 비교표로 문서화</li>
-          <li><strong>규모 산정 후 역할 한정</strong> — 트래픽을 <span class="highlight">일 16만 / 월 400만 건, 피크 50–100 msg/s</span>로 산정. 이 규모에서 메시징을 과하게 쓰면 운영 포인트만 늘어난다고 판단해 Kafka의 역할을 <span class="highlight">"비즈니스 이벤트를 전달하는 경계"</span>로 한정하고, fan-out·remote-chunking 등은 도입하지 않기로 결정</li>
-          <li><strong>단일 스트림 구조</strong> — 상태 변경 판단을 배치 안에서 끝내고 <span class="highlight">확정된 변경만 단일 토픽으로 1회 발행</span>. 수집 원본을 흘려보내고 정규화 결과를 재발행하는 다단 구성은 Outbox·발행·소비 지점만 두 배로 늘린다고 판단해 기각 — 물량 증가 시 파티션·컨슈머 증설만으로 확장 가능한 형태 유지</li>
-          <li><strong>발행 게이트를 DB 제약으로</strong> — "이전 상태를 읽어 비교 후 발행"은 동시 실행 시 lost update가 발생할 수 있어, UNIQUE 제약 <code>(송장, 발생시각, 상태)</code>의 INSERT 성공 여부 자체를 발행 조건으로 확정 — 별도 잠금 없이 <span class="highlight">재조회·재실행에도 중복 발행되지 않는 effect-once</span> 확보</li>
-          <li><strong>self-contained 이벤트 계약</strong> — 수신 측이 DB를 되묻지 않도록 이전·현재 상태를 payload에 담아 설계하되, 수령자 PII는 이벤트·웹훅 어디에도 싣지 않는 <span class="highlight">PII-free 투영</span>을 불변식으로 고정</li>
-        </ul>
-        <p class="sub-title">주요 기여 — 정합성·표준화</p>
-        <ul>
-          <li><strong>이벤트 유실이 불가능한 구조</strong> — 배송상태 DB 반영과 Outbox 저장을 동일 트랜잭션으로 묶어(Transactional Outbox) "DB는 반영됐는데 이벤트는 유실"되는 상황을 <span class="highlight">구조적으로 발생 불가</span>하게 설계</li>
-          <li><strong>발행 병목 제거 + 무손실 유지</strong> — 브로커 ack 동기 대기 구간을 <span class="highlight">비동기 콜백 마킹</span>으로 정련하고, relay 재발행 안전망 + 수신 측 이벤트 ID 중복 제거로 <span class="highlight">at-least-once 발행 + effect-once 처리</span>를 신뢰성 저하 없이 달성</li>
-          <li><strong>hot partition 사전 방지</strong> — 택배사 코드를 파티션 키로 쓰면 물량이 큰 택배사 이벤트가 소수 파티션에 몰려 해당 컨슈머만 밀리는 불균형이 예견됨. 키를 <span class="highlight">송장 식별자</span>로 확정해 분산을 확보하면서 동일 송장의 순서를 보장하고, <span class="highlight">"순서 단위 = 키 / 병렬성 단위 = 파티션 수"</span>로 개념을 분리해 물량 증가 시 파티션 수만 독립적으로 늘릴 수 있는 여지를 남김</li>
-          <li><strong>메시지 유실·poison pill 차단</strong> — Producer <code>acks=all</code>로 브로커 리더 손실 시 유실을 방지하고, <code>ErrorHandlingDeserializer</code> + DLQ 표준화로 역직렬화 실패 메시지가 <span class="highlight">파티션 처리량을 0으로 떨어뜨리는 무한 재시도 장애</span>를 차단</li>
-          <li><strong>클러스터 토폴로지 결정 기준 전환</strong> — 트래픽 기준으로 제안된 3노드 Combined 모드(브로커·컨트롤러 겸용)를 Confluent 공식 문서(운영 환경 Combined mode 미지원)·사내 구축 사례 조사를 근거로 반박하고 <span class="highlight">브로커 3대 + 컨트롤러 3대 분리(Isolated) 구성</span>으로 전환, 인프라 설치 요청서에 근거로 반영. 로컬 개발환경도 운영과 동일한 6노드 Isolated로 구성해 쿼럼 장애·롤링 재시작을 로컬에서 먼저 검증</li>
-          <li><strong>팀 표준화</strong> — 토픽 계약·클라이언트 설정 규약·Outbox 발행 패턴을 <span class="highlight">단일 참조 설계(SoT) 문서</span>로 정리 — 송장접수 등 신규 도메인이 Kafka에 이벤트를 얹을 때 그대로 따르는 기준으로 확립</li>
-        </ul>
-        <p class="sub-title">AI 협업 방식 · 검증</p>
-        <ul>
-          <li>파티션 키·아웃박스 사례 조사는 AI에 위임하되 <span class="highlight">코드 실측과 대조해 채택을 직접 판단</span> — 설계 초안의 "발행 직후 성공 마킹 + try-catch" 모델이 <span class="highlight">KafkaTemplate 비동기 시맨틱과 충돌</span>(브로커 실패는 콜백으로만 전달)함을 식별해 <span class="highlight">whenComplete 콜백 마킹 + REQUIRES_NEW</span>로 정정하고, 발행 게이트·payload 소싱 등 정합성 쟁점은 <span class="highlight">사람 결정으로만 해소</span>되도록 운영</li>
-        </ul>
-        <p class="sub-title">성과</p>
-        <ul>
-          <li>송장접수 등 후속 도메인이 그대로 따를 수 있는 <span class="highlight">Kafka 이벤트 표준(토픽 계약·클라이언트 규약·Outbox 패턴)</span>을 확립하고, 배송추적 도메인에 직접 구현해 레퍼런스 제공</li>
-          <li>이벤트 유실·중복 발행을 <span class="highlight">코드 규칙이 아닌 DB 제약과 트랜잭션 경계로</span> 차단 — 정합성 사고 대응을 사후 검증에서 사전 차단으로 전환. 택배사 조회·발행·소비 실패를 각각 다른 경계에서 격리해 <span class="highlight">한 지점의 실패가 파이프라인 전체를 멈추지 않는</span> 구조 확보</li>
-          <li>아키텍처 선택·기각 근거를 ADR로 문서화 (저장소 <span class="highlight">ADR 9건 중 8건 직접 기안</span>) — 스펙-코드 불일치 논쟁을 문서 기준으로 종결</li>
-        </ul>
-        <p class="project-meta" style="margin-top:12px;"><span>협업: 운영팀, 백엔드 개발자 3명</span><span>기술 스택: Kafka(KRaft), SpringBoot 4, Java 25, Spring Batch, MySQL 8, Docker Compose</span></p>
-      </div>
-
-      <div class="project">
-        <h3 class="project-title">4. Grafana 기반 관측성(모니터링) 체계 설계 및 연동 — Pinpoint(APM) 한계 보완</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 커머스 택배 허브 (관측성 인프라)</span><span>아키텍처 / 인프라 / 운영</span><span>기여도: <span class="highlight">100%</span></span></p>
-        <p class="sub-title">서비스 설명</p>
-        <p>팀에서 쓰던 Pinpoint(APM)는 애플리케이션 트레이스 중심이라 <span class="highlight">Kafka 클러스터·배치 파이프라인 지표와 메트릭·로그·트레이스 상관 조회</span>를 덮지 못했습니다. 메트릭(Prometheus)·트레이스(Tempo)·로그(Loki) 3기둥을 <span class="highlight">Grafana 단일 화면</span>으로 통합하는 관측 체계를 설계하고 실제 연동까지 진행했습니다.</p>
-        <div class="arch-flow">
-          <div class="an"><b>수집 대상</b><small>gateway·api·batch 3모듈<br />Kafka 6노드(JMX) · Redis</small></div>
-          <div class="ar">→</div>
-          <div class="an"><b>Prometheus</b><small>메트릭 · scrape(pull)</small></div>
-          <div class="an"><b>Tempo</b><small>트레이스 · OTLP(push)</small></div>
-          <div class="an"><b>Loki</b><small>로그 · Alloy tail(push)</small></div>
-          <div class="ar">→</div>
-          <div class="an"><b>Grafana</b><small>메트릭↔트레이스↔로그<br />trace_id 상관(pivot) · 경보</small></div>
-        </div>
-        <p class="arch-note">세 신호가 Grafana 한 화면으로 수렴 — trace_id 하나로 요청 단위 원인 추적</p>
-        <p class="sub-title">설계 판단</p>
-        <ul>
-          <li><strong>관측성 아키텍처 선정</strong> — 올인원 APM(Pinpoint) 대신 <span class="highlight">기둥별 best-of-breed 조합</span>(메트릭 Prometheus+Grafana / 트레이스 Tempo / 로그 Loki, 계측 표준은 OpenTelemetry)으로 결론. "Prometheus만으로는 Pinpoint를 대체할 수 없다(메트릭 기둥만 덮는다)"는 점을 명시하고, Pinpoint의 HBase 대비 <span class="highlight">S3 호환 오브젝트 스토리지만으로 운영 가능</span>한 Tempo·Loki의 운영 비용 이점을 근거로 정리해 도입 문서화</li>
-          <li><strong>수집 갭 식별</strong> — 기존 kafka-exporter는 Lag·offset 등 프로토콜 레벨 지표만 수집해 <span class="highlight">JVM GC·힙, 리밸런싱, ISR 축소 전이</span>는 관측 불가함을 확인하고 JMX Exporter를 보완재로 배치. GUI 도구(kafka-ui·AKHQ 병행)는 AKHQ로 일원화하고 상시 관측은 exporter 기반으로 분리</li>
-        </ul>
-        <p class="sub-title">구축·연동</p>
-        <ul>
-          <li>브로커·컨트롤러 <span class="highlight">6개 노드 전체(100% 커버리지)</span>에 JMX Exporter를 적용해 Prometheus + Grafana로 시각화하고, <span class="highlight">리밸런싱·ISR 축소·컨슈머 Lag 중심의 경보 규칙 신설</span></li>
-          <li><strong>기동 차단급 장애 원인 규명</strong> — healthcheck·CLI가 <code>KAFKA_OPTS</code>를 상속해 점유된 JMX 포트에 재바인딩하며 <span class="highlight">JVM fatal error</span>를 유발하는 문제를 발견, 브로커 프로세스 한정 주입으로 해결하고 재발 방지 경고를 문서로 남김</li>
-          <li><strong>계측 표준화·3자 상관</strong> — actuator 노출 정책을 일원화해 게이트웨이 <span class="highlight">커스텀 메트릭 10종</span> 노출, gateway/api/batch <span class="highlight">3개 모듈 trace_id 통일</span>로 메트릭 → 트레이스 → 로그 상관 조회(pivot)를 한 화면에서 가능하게 구성</li>
-        </ul>
-        <p class="sub-title">성과</p>
-        <ul>
-          <li><span class="highlight">Kafka 6노드 + 앱 3모듈 + Redis</span>까지 계측 범위를 확보하고 핵심 장애 신호(리밸런싱·ISR 축소·Lag) 경보 규칙 신설</li>
-          <li>메트릭·트레이스·로그를 <span class="highlight">trace_id 하나로 연결</span>해 장애 시 원인 추적 경로를 한 화면으로 단축</li>
-        </ul>
-        <p class="project-meta" style="margin-top:12px;"><span>협업: 서비스운영팀, 플랫폼운영팀, 백엔드 개발자 3명</span><span>기술 스택: Kafka(KRaft), JMX Exporter, Prometheus, Grafana, OpenTelemetry, Tempo, Loki, Micrometer, AKHQ, Docker Compose</span></p>
-      </div>
-
-      <div class="project">
-        <h3 class="project-title">5. 멀티 에이전트 개발 파이프라인 구축 및 팀 표준화</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 커머스 택배 허브 (개발 프로세스)</span><span>개발 생산성 / 품질</span><span>기여도: <span class="highlight">100%</span></span></p>
-        <p class="sub-title">서비스 설명</p>
-        <p>AI 코딩 도구를 쓰기 시작하면서 <span class="highlight">"빠르게 나오지만 믿을 수 없는 코드"</span>가 실질 리스크가 됐습니다. 요구사항이 산출물에 남지 않아 재작업이 발생하고, 세션이 끊기면 진행 맥락이 사라지며, 규칙을 프롬프트로 적어둬도 지켜졌는지 확인할 방법이 없었습니다.</p>
-        <p>이를 해결하기 위해 <span class="highlight">역할별 에이전트 · 결정론적 품질 게이트 · 자율 개선 루프</span>로 구성된 개발 파이프라인을 설계·구축하고 실제 기능 개발에 전면 적용했습니다.</p>
-        <p class="sub-title">설계 전략</p>
-        <ul>
-          <li><strong>단일 에이전트가 아닌 역할 분리</strong> — 오케스트레이터가 진입점이 되어 <span class="highlight">단계별 전담 에이전트 14개</span>(요구 정리 → 설계 → 작업 분해 → 구현 → 검증 → 보안 리뷰 → 복구)를 순차 호출하고, 각 단계 끝에 자체검토 게이트(PASS/REVISE/REJECT)를 둬 <span class="highlight">잘못된 산출물이 다음 단계로 흘러가지 않도록</span> 차단</li>
-          <li><strong>인터페이스 선결정 후 병렬 실행</strong> — 스펙·설계·데이터 모델을 먼저 확정(frozen)한 뒤 작업을 <span class="highlight">병렬 실행 가능 단위([P])로 분해</span>해 구현 워커 에이전트에 분배 — 여러 에이전트가 동시에 작업해도 변경 충돌이 나지 않도록 <span class="highlight">경계를 사람이 먼저 결정</span>하는 구조</li>
-          <li><strong>"자연어 규칙은 우회 가능하다"는 전제</strong> — 반복 위반이 확인된 규칙은 프롬프트가 아니라 <span class="highlight">결정론적 hook 9종</span>으로 격상. 구현 전 실패 테스트 존재 검증(Test-First 강제), 빌드·린트 자동 검증, 시크릿 평문 노출 차단, 토큰 예산 점검 등 <span class="highlight">기계가 판정하는 게이트</span>로 품질 기준을 고정</li>
-          <li><strong>세션 단절 복구 설계</strong> — 산출물에 상태(draft → reviewed → frozen)를 부여해, 세션이 끊겨도 다음 세션이 <span class="highlight">어디까지 확정됐는지 정확히 복구</span>하고 이어서 진행할 수 있도록 구성</li>
-          <li><strong>파이프라인 자체의 자율 개선</strong> — 실행 중 발생한 마찰(컨텍스트 초과 등)을 스스로 관측·기록하고 스케줄에 따라 개선 커밋을 <span class="highlight">자율 실행(9회)</span>. 정책과 충돌하는 항목은 별도 플래그로 분리해 사람 확인 없이는 실행되지 않도록 안전장치 포함</li>
-        </ul>
-        <p class="sub-title">성과</p>
-        <ul>
-          <li><strong>개인 도구가 아닌 팀 자산</strong> — 파이프라인을 <span class="highlight">다른 프로젝트로 통째 복사 가능한 팀 내부 템플릿</span>으로 정리(사용법·디렉터리 규약·트리거 문서 포함), 특정 개인의 프롬프트 노하우에 의존하지 않는 개발 방식 확립</li>
-          <li><strong>설계 지식의 저장소 자산화</strong> — 아키텍처·컨벤션 문서 <span class="highlight">101건 중 64건(63%)</span>을 이 파이프라인으로 산출. 사람이 기억하던 컨텍스트를 문서로 옮겨, 신규 인원·AI 모두가 같은 기준으로 작업 가능</li>
-          <li><strong>실사용 정착</strong> — 완료 작업 33건에 적용해 <span class="highlight">22건(67%)이 정식 스펙까지, 19건(58%)이 작업 분해까지</span> 산출물을 남기고 완주(나머지는 경량 경로). 프레임워크 자체 개선 커밋 <span class="highlight">40건</span> — 1회성 세팅이 아니라 계속 다듬어 쓰는 도구로 운영</li>
-          <li><strong>AI 산출물의 신뢰 확보</strong> — Test-First·빌드·보안 게이트를 통과하지 못한 코드는 애초에 진행되지 않는 구조를 만들어, "빨리 나오는 코드"를 <span class="highlight">"검증된 코드"</span>로 전환</li>
-          <li>※ 도입 전후를 비교할 baseline이 없어 "생산성 N% 향상" 같은 속도 지표는 제시하지 않고, 채택률·자동화 범위 지표로 성과를 기술함</li>
-        </ul>
-        <p class="project-meta" style="margin-top:12px;"><span>협업: 백엔드 개발자 3명</span><span>기술 스택: Claude Code(서브에이전트·Hook·슬래시 커맨드), Python, Git Hook, Cron</span></p>
-      </div>
-
-      <div class="project">
-        <h3 class="project-title">6. WMS 물류 — 엑셀 발주 일괄등록 배치 전환 (PHP → Spring Batch)</h3>
+        <h3 class="project-title">3. WMS 물류 — 엑셀 발주 일괄등록 배치 전환 (PHP → Spring Batch)</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>PHP / 스프링 배치</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p>PHP 기반 엑셀 발주 배치에서 파일당 15,000건 처리 시 <span class="highlight">12분 이상 소요되거나 OOM으로 중단</span>되는 문제가 반복됐습니다. Spring Batch로 전환한 초기 버전에서도 동일 증상이 재현돼, "프레임워크 전환"이 아니라 <span class="highlight">병목의 실체를 프로파일링으로 재정의</span>하는 것부터 다시 시작한 프로젝트입니다.</p>
@@ -939,7 +852,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">7. 물류 피킹통합 기능 확장 및 주문 단위 출고 작업 기능 신설, 출고지시 자동화 배치 구현</h3>
+        <h3 class="project-title">4. 물류 피킹통합 기능 확장 및 주문 단위 출고 작업 기능 신설, 출고지시 자동화 배치 구현</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>Frontend / Backend / 스프링 배치</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p><strong>목적:</strong> 출고 작업 효율성 향상을 위한 다양한 피킹 방식 지원. <br /><strong>핵심 기능:</strong> 출고주문별조회 메뉴 신설, 피킹통합 기능, 출고지시 자동화 배치. <br /><strong>배경:</strong> 기존 출고회차 기준 피킹 방식의 한계 해소 및 출고 프로세스 자동화 확대.</p>
@@ -964,7 +877,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">8. 정산 시스템 연동 안정화를 통해 데이터 정합성 100% 확보 및 회계 리스크 제거</h3>
+        <h3 class="project-title">5. 정산 시스템 연동 안정화를 통해 데이터 정합성 100% 확보 및 회계 리스크 제거</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice 빌링 시스템 / 신정산 시스템</span><span>기여도: <span class="highlight">80%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p>연간 약 <span class="highlight">300억</span> 규모의 빌링-정산 데이터를 관리하는 그룹웨어 백오피스에서, 빌링시스템 내 정산 코드를 분리하고 <span class="highlight">신정산시스템 연동 인터페이스</span>를 재설계·구현하는 프로젝트를 진행했습니다.</p>
@@ -992,7 +905,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">9. 백오피스 & 4개의 플랫폼서비스 개발 & 운영 & 트러블슈팅</h3>
+        <h3 class="project-title">6. 백오피스 & 4개의 플랫폼서비스 개발 & 운영 & 트러블슈팅</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice / 고객 인입 포털 / 외부 API 연동 서비스 / 클라이언트 조직도 동기화 서비스 등</span><span>기여도: <span class="highlight">40%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
@@ -1013,7 +926,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">10. RabbitMQ & Scheduling 기반의 서비스 신규개설 요청에 대한 통합 알림 프로세스 개발</h3>
+        <h3 class="project-title">7. RabbitMQ & Scheduling 기반의 서비스 신규개설 요청에 대한 통합 알림 프로세스 개발</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p>고객의 멤버십 서비스 개설 요청 시, 총 6개 시스템(다우오피스, 외부 API 서버, 조직도 동기화 서버, 회계 시스템, 메일 시스템, DNS 등)에 대해 개설 처리를 수행함. 기존에는 서비스별 개설 성공/실패 여부를 로그를 통해 개별 분석해야 하는 번거로움이 있었음.</p>
@@ -1037,7 +950,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">11. 멤버십 구요금제 → 신요금제로 전환 프로세스 설계 및 구현</h3>
+        <h3 class="project-title">8. 멤버십 구요금제 → 신요금제로 전환 프로세스 설계 및 구현</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice / 고객 인입 포털</span><span>기여도: <span class="highlight">50%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
@@ -1061,7 +974,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">12. 클러스터간 PK 중복없이 회사를 이관하기 위한 다우오피스 전체 클러스터 채번 전략 재수립</h3>
+        <h3 class="project-title">9. 클러스터간 PK 중복없이 회사를 이관하기 위한 다우오피스 전체 클러스터 채번 전략 재수립</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 다우오피스 SaaS 서비스</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
@@ -1082,7 +995,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">13. 복수 클라이언트 확장을 고려한 SSO 연동 표준 서비스 설계 및 개발 (다우오피스 LG 복지몰 오픈)</h3>
+        <h3 class="project-title">10. 복수 클라이언트 확장을 고려한 SSO 연동 표준 서비스 설계 및 개발 (다우오피스 LG 복지몰 오픈)</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 다우오피스 외부 클라이언트 연동 서비스</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
