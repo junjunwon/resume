@@ -673,10 +673,10 @@
         <p class="exp-meta"><span>(주)다우기술 풀필먼트개발팀</span><span>2026.04 ~ 2026.09 (2026.09 오픈)</span></p>
         <p class="exp-desc">굿스플로를 거치던 택배접수를 사방넷이 <strong>9개 택배사와 직접 연동</strong>하기 위한 서비스를 신규 구축했습니다.</p>
         <ul>
-          <li><span class="highlight">API Gateway 설계·구현</span> — 2트랙 인증(Basic·JWT)과 Redis Lua 기반 3-tier 레이트리밋을 엣지로 일원화, GW의 DB 의존·event loop 블로킹 제거</li>
           <li>WMS의 동기식 처리 구조로 인한 중복 출고·보상 이슈를 보완하기 위해 <span class="highlight">Kafka 도입 제안</span>, 6노드 Isolated 클러스터·토픽 규격·Outbox 표준 설계</li>
           <li><span class="highlight">택배사 어댑터 9종</span>과 배송추적·반송장 파이프라인 구현 — Outbox·4계층 멱등성으로 <span class="highlight">이벤트 유실 차단·웹훅 1회 발송 보장</span></li>
           <li>Pinpoint → <span class="highlight">Grafana LGTM 모니터링 전환</span> — trace_id 기반 트레이스↔로그 연결, Kafka·Redis 포함 알림 룰 17종 구축</li>
+          <li><span class="highlight">API Gateway 설계·구현</span> — 2트랙 인증(Basic·JWT)과 Redis Lua 기반 3-tier 레이트리밋을 엣지로 일원화, GW의 DB 의존·event loop 블로킹 제거</li>
           <li>역할별 에이전트 14개·검증 게이트 9종으로 구성한 <span class="highlight">AI 개발 파이프라인</span>을 팀 템플릿으로 표준화</li>
         </ul>
         <p class="exp-skills"><strong>Skill Keyword:</strong> Java 25, SpringBoot 4, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka(KRaft), Redis Cluster, MySQL, OpenTelemetry, Grafana, Prometheus, Loki, Tempo, Claude Code</p>
