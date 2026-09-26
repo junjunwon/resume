@@ -690,7 +690,7 @@
           <li>엑셀 발주 일괄등록 PHP 배치를 <span class="highlight">Spring Batch</span>로 전환 및 성능 개선 — 처리 시간 <span class="highlight">93.75% 감소(12분→45초)</span> 및 <span class="highlight">OOM 해결</span></li>
           <li>Strategy 패턴 기반 물류 피킹통합 기능 확장 및 <span class="highlight">주문 단위 출고 작업 신설, 출고지시 자동화 배치 구현</span></li>
         </ul>
-        <p class="exp-skills"><strong>Skill Keyword:</strong> Java 21, SpringBoot, Spring Batch, MyBatis, Redis, MySQL, Vue 3, Cronicle, NCP</p>
+        <p class="exp-skills"><strong>Skill Keyword:</strong> Java 21, SpringBoot, Spring Batch, MyBatis, Redis, MySQL, Vue 3, Cronicle, Pinpoint, NCP</p>
       </div>
 
       <div class="exp-item">
@@ -761,28 +761,27 @@
         <p class="arch-note">전 구간을 trace_id로 연결해 Grafana(Prometheus·Loki·Tempo) 한 화면에서 추적</p>
 
         <p class="sub-title">주요 기여</p>
-        <p><strong>① API Gateway 설계·구현</strong></p>
-        <ul>
-          <li>서버 간 호출(Basic)과 셀러 브라우저 iframe(JWT) <span class="highlight">2트랙 인증</span>을 엣지 한 곳으로 통합. 자격증명 검증은 내부 API로 위임하고 비동기 캐시(stampede 방지)로 흡수해 <span class="highlight">GW의 DB·bcrypt 의존을 없애고 event loop 블로킹 0</span></li>
-          <li>Redis Lua 기반 <span class="highlight">Sliding Window 레이트리밋을 직접 구현</span>(계약·클라이언트·토큰발급 3 tier) — 계약 하나의 트래픽이 다른 계약에 영향을 주지 않도록 격리, Redis 지연 시 fail-open</li>
-          <li>재시도를 TCP 연결 실패로만 제한해 <span class="highlight">POST 중복(운송장 중복 발행) 차단</span>, XFF 신뢰 hop 기반 판정으로 IP 위조 차단(CVE-2026-47825 대응)</li>
-        </ul>
-        <p><strong>② Kafka 도입 제안·이벤트 아키텍처 설계</strong></p>
+        <p><strong>① Kafka 도입 제안·이벤트 아키텍처 설계</strong></p>
         <ul>
           <li>WMS의 동기식 처리 구조로 인한 중복 출고·보상 이슈를 보완하기 위해, <span class="highlight">디스크 영속·로그 재읽기로 이벤트 추적·재처리가 가능한 Kafka 도입을 제안</span></li>
           <li>트래픽 산정(일 16만 건·피크 100 msg/s)으로 서버 스펙·디스크를 산출하고, 초기 3대 Combined 안은 Confluent 운영 미지원을 확인해 폐기 → <span class="highlight">브로커 3 + 컨트롤러 3 Isolated 구성</span>으로 설계</li>
-          <li>토픽 규격(파티션 10 / RF 3 / min.isr 2)·파티션 키(송장 ID)·Outbox·DLQ·메시지 계약을 <span class="highlight">팀 공용 표준</span>으로 정리</li>
         </ul>
-        <p><strong>③ 배송추적 · 반송장 파이프라인 설계·구현</strong></p>
+        <p><strong>② 배송추적 · 반송장 파이프라인 설계·구현</strong></p>
         <ul>
           <li>택배사 <span class="highlight">어댑터 9종 전량 구현</span>, 상이한 상태 코드를 표준 8값(매핑 106건)으로 정규화 — <span class="highlight">신규 택배사 추가 시 수정 지점 2곳</span></li>
           <li>Transactional Outbox → Kafka → 웹훅으로 이벤트 유실을 구조적으로 차단하고, <span class="highlight">4계층 멱등성</span>으로 재처리해도 웹훅은 1회만 발송</li>
           <li>택배사가 사후에 채우는 반송장을 3가지 경로로 획득, 후보가 모호하면 갱신하지 않고 알림 — <span class="highlight">반송장 오귀속 차단</span></li>
         </ul>
-        <p><strong>④ 관측성 전환 (Pinpoint → Grafana LGTM)</strong></p>
+        <p><strong>③ 관측성 전환 (Pinpoint → Grafana LGTM)</strong></p>
         <ul>
           <li>로그 확인에 서버 접속이 필요하고 트레이스·로그가 분산되던 Pinpoint의 한계를 보완 — <span class="highlight">trace_id로 트레이스↔로그 양방향 이동</span>, Kafka 브로커·consumer lag·Redis까지 한 화면에서 관측</li>
           <li>Kafka ISR 축소·컨슈머 중단·5xx 비율 등 <span class="highlight">알림 룰 17종 → Slack</span>, 대시보드 7종 구축. 계측은 인프라운영팀이 대응 가능한 사내 표준(OTel 에이전트)으로 단일화</li>
+        </ul>
+        <p><strong>④ API Gateway 설계·구현</strong></p>
+        <ul>
+          <li>서버 간 호출(Basic)과 셀러 브라우저 iframe(JWT) <span class="highlight">2트랙 인증</span>을 엣지 한 곳으로 통합. 자격증명 검증은 내부 API로 위임하고 비동기 캐시(stampede 방지)로 흡수해 <span class="highlight">GW의 DB·bcrypt 의존을 없애고 event loop 블로킹 0</span></li>
+          <li>Redis Lua 기반 <span class="highlight">Sliding Window 레이트리밋을 직접 구현</span>(계약·클라이언트·토큰발급 3 tier) — 계약 하나의 트래픽이 다른 계약에 영향을 주지 않도록 격리, Redis 지연 시 fail-open</li>
+          <li>재시도를 TCP 연결 실패로만 제한해 <span class="highlight">POST 중복(운송장 중복 발행) 차단</span>, XFF 신뢰 hop 기반 판정으로 IP 위조 차단(CVE-2026-47825 대응)</li>
         </ul>
 
         <p class="sub-title">성과</p>
