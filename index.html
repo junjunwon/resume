@@ -659,8 +659,10 @@
     </header>
 
     <p class="intro">
-      Java & Spring 기반의 <span class="highlight">7년차</span> 서버 백엔드 엔지니어 원준호입니다. <br />
-      다우오피스 플랫폼서비스팀에서 <span class="highlight">4개 서비스 연동·개발</span>과 대규모 데이터에 대한 <span class="highlight">정합성 확보</span>를 담당했습니다. 현재는 풀필먼트개발팀에서 사방넷 WMS <span class="highlight">운영·기능 개선과 성능 최적화</span>를 담당하고, 9개 택배사 연동 허브를 신규 구축하며 <span class="highlight">API Gateway·Kafka 이벤트 아키텍처·배송추적 파이프라인·관측성</span>을 설계·구현했습니다. 구현·테스트 초안·영향 범위 탐색은 <span class="highlight">AI 에이전트에 위임</span>하고, 저는 <span class="highlight">문제 정의·아키텍처 결정·산출물 검증</span>에 집중하는 개발 방식을 팀 표준으로 만들어가고 있으며, 설계의 선택·기각 근거를 ADR·스펙 문서로 남겨 팀의 기술적 성숙도에 기여하고 있습니다.
+      <span class="highlight">7년차</span> 서버 백엔드 엔지니어 원준호입니다.<br /><br />
+      다우오피스 플랫폼서비스팀에서 <span class="highlight">4개 서비스 연동·개발</span>과 <span class="highlight">대규모 데이터 정합성 확보</span>를 담당했습니다.<br />
+      현재는 풀필먼트개발팀에서 사방넷 WMS의 <span class="highlight">기능 개선과 성능 최적화</span>를 맡고 있으며, 9개 택배사 연동 허브를 신규 구축해 <span class="highlight">API Gateway·Kafka 이벤트 아키텍처·배송추적 파이프라인·관측성</span>을 설계·구현했습니다.<br /><br />
+      구현은 <span class="highlight">AI 에이전트에 위임</span>하고, 저는 <span class="highlight">문제 정의·아키텍처 결정·산출물 검증</span>에 집중하는 개발 방식을 팀 표준으로 만들어가고 있습니다. 설계의 선택·기각 근거는 ADR로 남겨 팀이 같은 기준으로 판단할 수 있도록 합니다.
     </p>
 
     <!-- 경력 요약 (Work Experience Overview) -->
@@ -734,7 +736,7 @@
 
       <div class="project">
         <h3 class="project-title">1. 커머스 택배허브 신규 구축 — 9개 택배사 연동을 단일 API로 제공</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>기간: 2026.04 ~ 2026.09</span><span>인원: 백엔드 3명</span><span>역할: Gateway·Kafka·배송추적·관측성 설계·구현</span></p>
+        <p class="project-meta"><span>회사: 다우기술</span><span>기간: 2026.04 ~ 2026.09</span><span>인원: 택배허브 개발 3명(본인 포함) · 사방넷 개발 2명 · 기획 3명</span><span>역할: Gateway·Kafka·배송추적·관측성 설계·구현</span></p>
         <p class="sub-title">배경</p>
         <p>외부 대행사(굿스플로)를 거치던 송장 발급·배송추적을 <span class="highlight">9개 택배사(CJ·한진·롯데·로젠·우체국·일양·카카오T·딜리박스·딜리래빗)와 직접 연동</span>하는 허브를 새로 구축했습니다. 택배사마다 API·인증·상태 코드가 달랐고, 기존 구조에서는 <span class="highlight">중복 출고 보상 이슈가 반복</span>돼 이벤트를 정확히 추적·재처리하는 구조가 핵심 과제였습니다.</p>
         <div class="arch-flow">
@@ -775,49 +777,17 @@
           <li>Kafka ISR 축소·컨슈머 중단·5xx 비율 등 <span class="highlight">알림 룰 17종 → Slack</span>, 대시보드 7종 구축. 계측은 인프라운영팀이 대응 가능한 사내 표준(OTel 에이전트)으로 단일화</li>
         </ul>
 
-        <p class="sub-title">문제 해결</p>
-        <table>
-          <thead>
-            <tr><th>문제</th><th>원인</th><th>해결</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>CJ 일부 건 영구 유실</td><td>수집 확정(confirm)이 원문 기준이라 drop된 건까지 확정</td><td>drop 결과를 confirm 제외 근거로 환류</td></tr>
-            <tr><td>배송이력 PK <span class="highlight">258만 급증</span></td><td>ON DUPLICATE KEY UPDATE가 중복 흡수 시에도 auto-increment 소각</td><td><code>WHERE NOT EXISTS</code> INSERT로 전환</td></tr>
-            <tr><td>운영 환경 403 오탐</td><td>LB + 프록시 2단 구성에서 XFF hop 불일치로 LB 사설 IP를 클라이언트로 판정</td><td>환경별 토폴로지 실측 후 hop 수 정정</td></tr>
-            <tr><td>한진 API 429 호출 제한</td><td>무간격 연속 호출</td><td>실측으로 특정 후 500ms 스로틀 도입</td></tr>
-            <tr><td>dev 로그 유실</td><td>OTel 에이전트·Spring starter 이중 계측</td><td>에이전트로 단일화</td></tr>
-          </tbody>
-        </table>
-
         <p class="sub-title">성과</p>
         <ul>
           <li>택배사 9사 연동 허브의 <span class="highlight">인프라(Gateway·Kafka·관측성)와 핵심 데이터 흐름(배송추적·반송장)</span>을 설계·구현</li>
           <li>이벤트 유실·중복을 코드 규칙이 아닌 <span class="highlight">트랜잭션 경계와 DB 제약으로 차단</span> — 이벤트를 로그에서 다시 읽어 재처리할 수 있는 구조 확보</li>
           <li>Kafka 클러스터·토픽·Outbox·메시지 계약을 <span class="highlight">허브 비동기 연동 표준</span>으로 수립, 설계 근거는 ADR로 문서화</li>
         </ul>
-        <p class="project-meta" style="margin-top:12px;"><span>협업: 백엔드 개발자 3명, 인프라운영팀</span><span>기술 스택: Spring Boot 4, Java 25, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka(Confluent 8.2, KRaft), Redis Cluster, MySQL, OpenTelemetry, Prometheus, Grafana, Loki, Tempo, NCP</span></p>
+        <p class="project-meta" style="margin-top:12px;"><span>협업: 사방넷 개발자 2명, 기획팀 3명, 인프라운영팀</span><span>기술 스택: Spring Boot 4, Java 25, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka(Confluent 8.2, KRaft), Redis Cluster, MySQL, OpenTelemetry, Prometheus, Grafana, Loki, Tempo, NCP</span></p>
       </div>
 
       <div class="project">
-        <h3 class="project-title">2. 멀티 에이전트 개발 파이프라인 구축 및 팀 표준화</h3>
-        <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 커머스 택배허브 (개발 프로세스)</span><span>개발 생산성 / 품질</span><span>기여도: <span class="highlight">100%</span></span></p>
-        <p class="sub-title">배경</p>
-        <p>AI 코딩 도구 도입 후 <span class="highlight">"빠르게 나오지만 믿을 수 없는 코드"</span>가 리스크가 됐습니다. 요구사항이 산출물에 남지 않고, 프롬프트로 적은 규칙은 지켜졌는지 확인할 방법이 없었습니다.</p>
-        <p class="sub-title">주요 기여</p>
-        <ul>
-          <li>요구 정리 → 설계 → 작업 분해 → 구현 → 검증 → 보안 리뷰를 <span class="highlight">역할별 에이전트 14개</span>로 분리하고, 단계마다 검토 게이트를 둬 잘못된 산출물이 다음 단계로 넘어가지 않도록 차단</li>
-          <li>반복 위반된 규칙은 프롬프트가 아닌 <span class="highlight">결정론적 hook 9종</span>으로 격상 — Test-First·빌드·시크릿 노출 검증 미통과 시 진행 차단</li>
-        </ul>
-        <p class="sub-title">성과</p>
-        <ul>
-          <li>다른 프로젝트에 그대로 복사 가능한 <span class="highlight">팀 템플릿</span>으로 정리, 저장소 설계 문서 101건 중 <span class="highlight">64건(63%)</span>을 파이프라인으로 산출</li>
-          <li>완료 작업 33건에 적용 — 22건(67%)이 정식 스펙까지 산출물을 남기고 완주</li>
-        </ul>
-        <p class="project-meta" style="margin-top:12px;"><span>협업: 백엔드 개발자 3명</span><span>기술 스택: Claude Code(서브에이전트·Hook·슬래시 커맨드), Python, Git Hook</span></p>
-      </div>
-
-      <div class="project">
-        <h3 class="project-title">3. WMS 물류 — 엑셀 발주 일괄등록 배치 전환 (PHP → Spring Batch)</h3>
+        <h3 class="project-title">2. WMS 물류 — 엑셀 발주 일괄등록 배치 전환 (PHP → Spring Batch)</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>PHP / 스프링 배치</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p>PHP 기반 엑셀 발주 배치에서 파일당 15,000건 처리 시 <span class="highlight">12분 이상 소요되거나 OOM으로 중단</span>되는 문제가 반복됐습니다. Spring Batch로 전환한 초기 버전에서도 동일 증상이 재현돼, "프레임워크 전환"이 아니라 <span class="highlight">병목의 실체를 프로파일링으로 재정의</span>하는 것부터 다시 시작한 프로젝트입니다.</p>
@@ -852,7 +822,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">4. 물류 피킹통합 기능 확장 및 주문 단위 출고 작업 기능 신설, 출고지시 자동화 배치 구현</h3>
+        <h3 class="project-title">3. 물류 피킹통합 기능 확장 및 주문 단위 출고 작업 기능 신설, 출고지시 자동화 배치 구현</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: WMS</span><span>Frontend / Backend / 스프링 배치</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p><strong>목적:</strong> 출고 작업 효율성 향상을 위한 다양한 피킹 방식 지원. <br /><strong>핵심 기능:</strong> 출고주문별조회 메뉴 신설, 피킹통합 기능, 출고지시 자동화 배치. <br /><strong>배경:</strong> 기존 출고회차 기준 피킹 방식의 한계 해소 및 출고 프로세스 자동화 확대.</p>
@@ -877,7 +847,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">5. 정산 시스템 연동 안정화를 통해 데이터 정합성 100% 확보 및 회계 리스크 제거</h3>
+        <h3 class="project-title">4. 정산 시스템 연동 안정화를 통해 데이터 정합성 100% 확보 및 회계 리스크 제거</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice 빌링 시스템 / 신정산 시스템</span><span>기여도: <span class="highlight">80%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p>연간 약 <span class="highlight">300억</span> 규모의 빌링-정산 데이터를 관리하는 그룹웨어 백오피스에서, 빌링시스템 내 정산 코드를 분리하고 <span class="highlight">신정산시스템 연동 인터페이스</span>를 재설계·구현하는 프로젝트를 진행했습니다.</p>
@@ -905,7 +875,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">6. 백오피스 & 4개의 플랫폼서비스 개발 & 운영 & 트러블슈팅</h3>
+        <h3 class="project-title">5. 백오피스 & 4개의 플랫폼서비스 개발 & 운영 & 트러블슈팅</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice / 고객 인입 포털 / 외부 API 연동 서비스 / 클라이언트 조직도 동기화 서비스 등</span><span>기여도: <span class="highlight">40%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
@@ -926,7 +896,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">7. RabbitMQ & Scheduling 기반의 서비스 신규개설 요청에 대한 통합 알림 프로세스 개발</h3>
+        <h3 class="project-title">6. RabbitMQ & Scheduling 기반의 서비스 신규개설 요청에 대한 통합 알림 프로세스 개발</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">서비스 설명</p>
         <p>고객의 멤버십 서비스 개설 요청 시, 총 6개 시스템(다우오피스, 외부 API 서버, 조직도 동기화 서버, 회계 시스템, 메일 시스템, DNS 등)에 대해 개설 처리를 수행함. 기존에는 서비스별 개설 성공/실패 여부를 로그를 통해 개별 분석해야 하는 번거로움이 있었음.</p>
@@ -950,7 +920,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">8. 멤버십 구요금제 → 신요금제로 전환 프로세스 설계 및 구현</h3>
+        <h3 class="project-title">7. 멤버십 구요금제 → 신요금제로 전환 프로세스 설계 및 구현</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: BackOffice / 고객 인입 포털</span><span>기여도: <span class="highlight">50%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
@@ -974,7 +944,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">9. 클러스터간 PK 중복없이 회사를 이관하기 위한 다우오피스 전체 클러스터 채번 전략 재수립</h3>
+        <h3 class="project-title">8. 클러스터간 PK 중복없이 회사를 이관하기 위한 다우오피스 전체 클러스터 채번 전략 재수립</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 다우오피스 SaaS 서비스</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
@@ -995,7 +965,7 @@
       </div>
 
       <div class="project">
-        <h3 class="project-title">10. 복수 클라이언트 확장을 고려한 SSO 연동 표준 서비스 설계 및 개발 (다우오피스 LG 복지몰 오픈)</h3>
+        <h3 class="project-title">9. 복수 클라이언트 확장을 고려한 SSO 연동 표준 서비스 설계 및 개발 (다우오피스 LG 복지몰 오픈)</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>대상 서비스: 다우오피스 외부 클라이언트 연동 서비스</span><span>기여도: <span class="highlight">100%</span></span></p>
         <p class="sub-title">책임</p>
         <ul>
