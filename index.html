@@ -669,19 +669,28 @@
       <h2 class="sec-title">경력 요약</h2>
 
       <div class="exp-item">
-        <p class="exp-company">서버 백엔드 개발자 · 사방넷 풀필먼트 (WMS · 커머스 택배 허브)</p>
-        <p class="exp-meta"><span>(주)다우기술</span><span>2025.07 ~ 현재</span></p>
-        <p class="exp-desc"><strong>1,200개 물류사</strong> 규모 사방넷 WMS의 운영·기능 개선을 담당하고, 같은 팀에서 외부 배송 연동 대행사(굿스플로)를 거치던 송장 발급·배송추적을 <strong>9개 택배사와 직접 연동</strong>하는 택배허브를 신규 구축했습니다 (사방넷·파트너사에 계약 단위 API 제공).</p>
+        <p class="exp-company">서버 백엔드 개발자 · 커머스 택배허브 (신규 구축)</p>
+        <p class="exp-meta"><span>(주)다우기술 풀필먼트개발팀</span><span>2026.04 ~ 2026.09 (2026.09 오픈)</span></p>
+        <p class="exp-desc">굿스플로를 거치던 택배접수를 사방넷이 <strong>9개 택배사와 직접 연동</strong>하기 위한 서비스를 신규 구축했습니다.</p>
         <ul>
           <li><span class="highlight">API Gateway 설계·구현</span> — 2트랙 인증(Basic·JWT)과 Redis Lua 기반 3-tier 레이트리밋을 엣지로 일원화, GW의 DB 의존·event loop 블로킹 제거</li>
           <li>중복 출고 보상 이슈를 근거로 <span class="highlight">Redis Streams → Kafka 전환 제안</span>, 6노드 Isolated 클러스터·토픽 규격·Outbox 표준 설계</li>
           <li><span class="highlight">택배사 어댑터 9종</span>과 배송추적·반송장 파이프라인 구현 — Outbox·4계층 멱등성으로 <span class="highlight">이벤트 유실 차단·웹훅 1회 발송 보장</span></li>
-          <li>Pinpoint → <span class="highlight">Grafana LGTM 관측성 전환</span> — trace_id 기반 트레이스↔로그 연결, Kafka·Redis 포함 알림 룰 17종 구축</li>
+          <li>Pinpoint → <span class="highlight">Grafana LGTM 모니터링 전환</span> — trace_id 기반 트레이스↔로그 연결, Kafka·Redis 포함 알림 룰 17종 구축</li>
           <li>역할별 에이전트 14개·검증 게이트 9종으로 구성한 <span class="highlight">AI 개발 파이프라인</span>을 팀 템플릿으로 표준화</li>
-          <li>WMS 엑셀 발주 일괄등록 PHP 배치를 <span class="highlight">Spring Batch</span>로 전환 및 성능 개선 — 처리 시간 <span class="highlight">93.75% 감소(12분→45초)</span> 및 <span class="highlight">OOM 해결</span></li>
+        </ul>
+        <p class="exp-skills"><strong>Skill Keyword:</strong> Java 25, SpringBoot 4, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka(KRaft), Redis Cluster, MySQL, OpenTelemetry, Grafana, Prometheus, Loki, Tempo, Claude Code</p>
+      </div>
+
+      <div class="exp-item">
+        <p class="exp-company">서버 백엔드 개발자 · 사방넷 풀필먼트 WMS</p>
+        <p class="exp-meta"><span>(주)다우기술 풀필먼트개발팀</span><span>2025.07 ~ 현재</span></p>
+        <p class="exp-desc"><strong>1,200개 물류사</strong>가 사용하는 풀필먼트 시스템(WMS)의 운영·기능 개선과 성능 최적화를 담당하고 있습니다.</p>
+        <ul>
+          <li>엑셀 발주 일괄등록 PHP 배치를 <span class="highlight">Spring Batch</span>로 전환 및 성능 개선 — 처리 시간 <span class="highlight">93.75% 감소(12분→45초)</span> 및 <span class="highlight">OOM 해결</span></li>
           <li>Strategy 패턴 기반 물류 피킹통합 기능 확장 및 <span class="highlight">주문 단위 출고 작업 신설, 출고지시 자동화 배치 구현</span></li>
         </ul>
-        <p class="exp-skills"><strong>Skill Keyword:</strong> Java 25/21, SpringBoot 4, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka(KRaft), Redis Cluster, MySQL, OpenTelemetry, Grafana, Prometheus, Loki, Tempo, Vue 3, Cronicle, NCP, Claude Code</p>
+        <p class="exp-skills"><strong>Skill Keyword:</strong> Java 21, SpringBoot, Spring Batch, MyBatis, Redis, MySQL, Vue 3, Cronicle, NCP</p>
       </div>
 
       <div class="exp-item">
@@ -737,7 +746,7 @@
         <h3 class="project-title">1. 커머스 택배허브 신규 구축 — 9개 택배사 연동을 단일 API로 제공</h3>
         <p class="project-meta"><span>회사: 다우기술</span><span>기간: 2026.04 ~ 2026.09</span><span>인원: 택배허브 개발 3명(본인 포함) · 사방넷 개발 2명 · 기획 3명</span><span>역할: Gateway·Kafka·배송추적·관측성 설계·구현</span></p>
         <p class="sub-title">배경</p>
-        <p>외부 대행사(굿스플로)를 거치던 송장 발급·배송추적을 <span class="highlight">9개 택배사(CJ·한진·롯데·로젠·우체국·일양·카카오T·딜리박스·딜리래빗)와 직접 연동</span>하는 허브를 새로 구축했습니다. 택배사마다 API·인증·상태 코드가 달랐고, 기존 구조에서는 <span class="highlight">중복 출고 보상 이슈가 반복</span>돼 이벤트를 정확히 추적·재처리하는 구조가 핵심 과제였습니다.</p>
+        <p>외부 대행사(굿스플로)를 거치던 택배접수·배송추적을 사방넷이 <span class="highlight">9개 택배사(CJ·한진·롯데·로젠·우체국·일양·카카오T·딜리박스·딜리래빗)와 직접 연동</span>할 수 있도록 허브를 새로 구축했습니다. 택배사마다 API·인증·상태 코드가 달랐고, 기존 구조에서는 <span class="highlight">중복 출고 보상 이슈가 반복</span>돼 이벤트를 정확히 추적·재처리하는 구조가 핵심 과제였습니다.</p>
         <div class="arch-flow">
           <div class="an"><b>Gateway</b><small>인증 · 레이트리밋 · LB</small></div>
           <div class="ar">→</div>
@@ -780,7 +789,7 @@
         <ul>
           <li>택배사 9사 연동 허브의 <span class="highlight">인프라(Gateway·Kafka·관측성)와 핵심 데이터 흐름(배송추적·반송장)</span>을 설계·구현</li>
           <li>이벤트 유실·중복을 코드 규칙이 아닌 <span class="highlight">트랜잭션 경계와 DB 제약으로 차단</span> — 이벤트를 로그에서 다시 읽어 재처리할 수 있는 구조 확보</li>
-          <li>Kafka 클러스터·토픽·Outbox·메시지 계약을 <span class="highlight">허브 비동기 연동 표준</span>으로 수립, 설계 근거는 ADR로 문서화</li>
+          <li>Kafka 클러스터·토픽·Outbox·메시지 계약을 <span class="highlight">허브 비동기 연동 표준</span>으로 수립</li>
         </ul>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 사방넷 개발자 2명, 기획팀 3명, 인프라운영팀</span><span>기술 스택: Spring Boot 4, Java 25, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka(Confluent 8.2, KRaft), Redis Cluster, MySQL, OpenTelemetry, Prometheus, Grafana, Loki, Tempo, NCP</span></p>
       </div>
