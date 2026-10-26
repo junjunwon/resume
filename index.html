@@ -651,16 +651,13 @@
           <a href="https://www.linkedin.com/in/junhowon" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
             <img class="link-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="28" height="28">
           </a>
-          <a href="https://github.com/junjunwon" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
-            <img class="link-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="28" height="28">
-          </a>
         </div>
       </div>
     </header>
 
     <p class="intro">
       안녕하세요. <span class="highlight">7년차</span> 소프트웨어 엔지니어 원준호입니다.<br /><br />
-      최근에는 구현·테스트 초안·영향 범위 탐색은 <span class="highlight">AI 에이전트에 위임</span>하고, 저는 <span class="highlight">문제 정의·아키텍처 결정·산출물 검증</span>에 집중하는 개발 방식을 팀 표준으로 만들어 가는 데 많은 관심을 쏟고 있습니다.<br /><br />
+      AI 에이전트가 구현과 테스트 초안을 맡는 환경에서, 문제 정의와 아키텍처 결정뿐 아니라 <span class="highlight">테스트 결과를 직접 검증해 실제 품질까지 확인하는 개발 방식</span>을 팀 표준으로 만들어 가고 있습니다.<br /><br />
       그동안 다우오피스 백오피스에서는 <span class="highlight">4개 서비스 연동·개발</span>과 연 <span class="highlight">300억</span> 규모 빌링-정산 시스템의 대규모 데이터 연동을 담당했습니다. 현재는 WMS 개발팀에 소속되어 사방넷 WMS 운영·기능 개선과 <span class="highlight">성능 최적화</span>에 기여하고 있고, <span class="highlight">9개 택배사 연동 허브</span>를 신규 구축하는 프로젝트에 참여해 <span class="highlight">API Gateway·Kafka 이벤트 아키텍처·배송추적 파이프라인·모니터링</span> 등을 설계·구현해 왔습니다.
     </p>
 
@@ -671,12 +668,14 @@
       <div class="exp-item">
         <p class="exp-company">소프트웨어 엔지니어 · 커머스 택배허브</p>
         <p class="exp-meta"><span>(주)다우기술 풀필먼트개발팀</span><span>2026.04 ~ 2026.09 (2026.09 오픈)</span></p>
-        <p class="exp-desc">사방넷이 외부 중개 서비스 없이 <strong>9개 택배사에 직접 택배를 접수하고 배송을 추적</strong>할 수 있도록 연동 허브 신규 구축</p>
+        <p class="exp-desc">사방넷이 외부 중개 서비스 없이 <strong>9개 택배사와 직접 연동</strong>할 수 있는 허브를 신규 구축하고, 굿스플로 고객사 1,300곳의 3차 이관·오픈을 장애 없이 완료</p>
         <ul>
           <li><span class="highlight">택배사 어댑터 9종</span>과 배송추적·반송장 배치 파이프라인 구현 — Outbox 기반 <span class="highlight">Kafka 이벤트 발행</span>과 4계층 멱등성으로 <span class="highlight">이벤트 유실 차단·웹훅 1회 발송 보장</span></li>
           <li>WMS의 동기식 처리 구조로 인한 중복 출고·보상 이슈를 보완하기 위해 <span class="highlight">Kafka 도입 제안</span>, 6노드 Isolated 클러스터·토픽 규격·Outbox 표준 설계</li>
           <li>Pinpoint → <span class="highlight">Grafana LGTM 모니터링 전환</span> — trace_id 기반 트레이스↔로그 연결, Kafka·Redis 포함 알림 룰 17종 구축</li>
           <li><span class="highlight">API Gateway 설계·구현</span> — 2트랙 인증(Basic·JWT)과 Redis Lua 기반 3-tier 레이트리밋을 엣지로 일원화, GW의 DB 의존·event loop 블로킹 제거</li>
+          <li>배송추적 Kafka 아키텍처와 택배사 인터페이스를 설계·구현 — <span class="highlight">일 50만 건</span> 배송추적 데이터 처리 기반 구축</li>
+          <li>오픈 후 AI 일일 점검 리포트를 바탕으로 메모리 이슈와 배송 데이터 정합성을 지속 점검·개선</li>
           <li>역할별 에이전트 14개·검증 게이트 9종으로 구성한 <span class="highlight">AI 개발 파이프라인</span>을 팀 템플릿으로 표준화</li>
         </ul>
         <p class="exp-skills"><strong>Skill Keyword:</strong> Java 25, SpringBoot 4, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka(KRaft), Redis Cluster, MySQL, OpenTelemetry, Grafana, Prometheus, Loki, Tempo, Claude Code</p>
@@ -768,7 +767,7 @@
         <p><strong>② Kafka 도입 제안·이벤트 아키텍처 설계</strong></p>
         <ul>
           <li>WMS의 동기식 처리 구조로 인한 중복 출고·보상 이슈를 보완하기 위해, <span class="highlight">디스크 영속·로그 재읽기로 이벤트 추적·재처리가 가능한 Kafka 도입을 제안</span></li>
-          <li>트래픽 산정(일 16만 건·피크 100 msg/s)으로 서버 스펙·디스크를 산출하고, 초기 3대 Combined 안은 Confluent 운영 미지원을 확인해 폐기 → <span class="highlight">브로커 3 + 컨트롤러 3 Isolated 구성</span>으로 설계</li>
+          <li>송장 접수 일 16만 건·피크 100 msg/s 기준으로 서버 스펙·디스크를 산출하고, 초기 3대 Combined 안은 Confluent 운영 미지원을 확인해 폐기 → <span class="highlight">브로커 3 + 컨트롤러 3 Isolated 구성</span>으로 설계</li>
         </ul>
         <p><strong>③ 관측성 전환 (Pinpoint → Grafana LGTM)</strong></p>
         <ul>
@@ -784,10 +783,13 @@
 
         <p class="sub-title">성과</p>
         <ul>
+          <li>굿스플로 고객사 <span class="highlight">1,300곳을 3차에 걸쳐 이관·오픈</span>하고, 오픈 당시 장애 없이 전환 완료</li>
+          <li>허브 처리 규모: 송장 접수 <span class="highlight">일 16만 건</span>, 배송추적 데이터 <span class="highlight">일 50만 건</span></li>
           <li>택배사 9사 연동 허브의 <span class="highlight">인프라(Gateway·Kafka·관측성)와 핵심 데이터 흐름(배송추적·반송장)</span>을 설계·구현</li>
           <li>이벤트 유실·중복을 코드 규칙이 아닌 <span class="highlight">트랜잭션 경계와 DB 제약으로 차단</span> — 이벤트를 로그에서 다시 읽어 재처리할 수 있는 구조 확보</li>
           <li>Kafka 클러스터·토픽·Outbox·메시지 계약을 <span class="highlight">허브 비동기 연동 표준</span>으로 수립</li>
         </ul>
+        <p>오픈 후에도 AI 일일 점검 리포트를 바탕으로 메모리 이슈와 배송 데이터 정합성을 점검·개선하고 있습니다.</p>
         <p class="project-meta" style="margin-top:12px;"><span>협업: 사방넷 개발자 2명, 기획팀 3명, 인프라운영팀</span><span>기술 스택: Spring Boot 4, Java 25, Spring Cloud Gateway(WebFlux), Spring Batch, Kafka(Confluent 8.2, KRaft), Redis Cluster, MySQL, OpenTelemetry, Prometheus, Grafana, Loki, Tempo, NCP</span></p>
       </div>
 
