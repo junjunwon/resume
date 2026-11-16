@@ -732,7 +732,7 @@
         <ul>
           <li><strong>Problem</strong> — The 9 couriers each had different APIs, auth methods, and status codes, and the WMS's synchronous processing caused duplicate shipments and compensation costs.</li>
           <li><strong>What I did</strong> — Built Spring Batch pipelines with adapters for all 9 couriers and mapped their statuses into 8 standard states (106 mappings). Published changes through Transactional Outbox → Kafka → webhooks, with 4 layers of idempotency. Proposed Kafka and sized a 6-node KRaft cluster for a target capacity of 160K shipment bookings/day and a 100 msg/s peak.</li>
-          <li><strong>Production traffic &amp; design</strong> — In a recent 4-day sample, the hub reached 48.2K inbound requests/day (49 RPS peak over one minute), 126.7K shipments accepted/day, and an average of 379.1K courier API calls/day. Separated Gateway ingress, batch tracking polls, and Kafka webhook delivery to handle bursty requests and high-volume asynchronous work.</li>
+          <li><strong>Production traffic &amp; design</strong> — From Nov 9–12, 2026 (four complete days), the hub reached 48.2K inbound requests/day (49 RPS peak over one minute), 126.7K shipments accepted/day, and an average of 379.1K courier API calls/day. Separated Gateway ingress, batch tracking polls, and Kafka webhook delivery to handle bursty requests and high-volume asynchronous work.</li>
           <li><strong>Result</strong> — Events cannot be lost by design, and webhooks fire once even when jobs are re-run. Adding a new courier takes changes in only 2 places.</li>
         </ul>
       </div>
